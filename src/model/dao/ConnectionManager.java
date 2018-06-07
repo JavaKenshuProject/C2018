@@ -11,7 +11,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * データベース管理クラスです
+ * データベース管理クラス
  *
  * @author Niibo
  * @version 1.00
