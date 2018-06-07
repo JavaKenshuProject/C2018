@@ -1,0 +1,63 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+#header{
+	color:#58656e;
+	background-color:#e4f0fc;
+	position: absolute;		/* 絶対位置指定することを定義 */
+	padding: 2px 0px;          /* 上下に余白を取る */
+	border: 5px solid #fff; /* 表示領域を白枠で囲う */
+	height: 40px;          /* 縦幅の指定15px */
+	width: 97%;           /* 横の幅97% */
+	margin: auto;           /* 中央揃え */
+}
+
+
+body{
+	font-family: "Noto Sans JP";
+}
+
+
+table{
+    padding: 1em 1em;
+    margin: 5em 0;
+    font-weight: bold;
+    color: #808080;/*文字色*/
+    background: #FFF;
+    border: solid 3px #e4f0fc;/*線*/
+    border-radius: 5px;/*角の丸み*/
+}
+
+
+
+
+
+input[type="submit"] {
+   display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #FFF;
+    background-image: -webkit-linear-gradient(45deg, #709dff 0%, #b0c9ff 100%);
+    background-image: linear-gradient(45deg, #709dff 0%, #b0c9ff 100%);
+    transition: .4s;
+
+}
+
+input[type="submit"] {
+	background-image: -webkit-linear-gradient(45deg, #709dff 50%, #b0c9ff 100%);
+    background-image: linear-gradient(45deg, #709dff 50%, #b0c9ff 100%);
+}
+
+
+footer{
+
+	background-color: #c0c0c0;   /* 背景色(黒) */
+	position: absolute;       /* 絶対位置指定することを定義 */
+	bottom: 0px;              /* 絶対位置指定(左0px,下0px) */
+	padding: 10px 0;          /* 上下に余白を取る */
+	border: 5px solid #fff; /* 表示領域を白枠で囲う */
+	height: 15px;          /* 縦幅の指定15px */
+	width: 97%;           /* 横の幅97% */
+	margin: auto;           /* 中央揃え */
+}
