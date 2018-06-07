@@ -51,9 +51,9 @@
 		%>
 			<tr>
 				<td><input type="radio" name="empCode" value="<%=employee.getEmpCode() %>"></td>
-				<td><%=employee.getEmpCode() %>&nbsp</td>
-				<td><%=employee.getLKanji() %>&nbsp<%=employee.getFKanji() %></td>
-				<td><%=employee.getLKana() %>&nbsp<%=employee.getFKana() %></td>
+				<td><%=employee.getEmpCode() %>&nbsp;</td>
+				<td><%=employee.getLKanji() %>&nbsp;<%=employee.getFKanji() %></td>
+				<td><%=employee.getLKana() %>&nbsp;<%=employee.getFKana() %></td>
 				<td><%
 						if(employee.getSex() == 0){
 					%>
