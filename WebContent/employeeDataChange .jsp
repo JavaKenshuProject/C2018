@@ -86,7 +86,7 @@
 			}
 		-->
 		</script>
-		<input type ="submit" value ="更新" onclick="return check()">
+		<input type ="submit" name="action" value ="更新" onclick="return check()">
 		</form>
 
 		<div align ="right">

@@ -162,7 +162,7 @@
 			}
 		-->
 		</script>
-		<input type ="submit" value ="登録" onclick ="return check()">
+		<input type ="submit" name="action" value ="登録" onclick ="return check()">
 		</form>
 
 		<div align ="right">

@@ -160,7 +160,7 @@
 			}
 		-->
 		</script>
-		<input type ="submit" value ="取得" onclick ="return check()">
+		<input type ="submit" name="action" value ="取得" onclick ="return check()">
 		</div>
 		</form>
 
