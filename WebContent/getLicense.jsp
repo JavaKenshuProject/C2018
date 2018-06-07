@@ -116,11 +116,7 @@
 						  </select>月
 				 		  <select name="licenseD">
 				 		   <%
-				 		   switch(M){
-				 		   	case 4:
-				 		   	case 6:
-				 		   	case 9:
-				 		   	case 11:
+				 		   if(M == 4 || M == 6 || M == 9 || M == 11){
 
 								for(int D =1; D < 31; D++) {
 						  %>
@@ -128,29 +124,27 @@
 						  <option value="<%= D %>"></option>
 
 						  <%
-						  	break;
-							}
-				 		   	case 2:
+								}
+							} else if(M==2) {
+
 				 		   		for(int D =1; D < 29; D++) {
 						  %>
 
 						  <option value="<%= D %>"></option>
 
 						  <%
-						  	break;
-							}
-				 		   	default:
+								}
+							} else {
+
 				 		   		for(int D =1; D < 32; D++) {
 						  %>
 
 						  <option value="<%= D %>"></option>
 
 						  <%
-						  	break;
-				 		   }
-				 		   }
+				 		   		}
+				 		   	}
 						  %>
-
 						  </select>日<br>
 						  <br>
 		<br>

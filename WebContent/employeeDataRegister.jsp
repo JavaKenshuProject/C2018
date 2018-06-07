@@ -43,12 +43,8 @@
 						  %>
 						  </select>月
 				 		  <select name="birthD">
-				 		   <%
-				 		   switch(M){
-				 		   	case 4:
-				 		   	case 6:
-				 		   	case 9:
-				 		   	case 11:
+				 		  <%
+				 		   if(M == 4 || M == 6 || M == 9 || M == 11){
 
 								for(int D =1; D < 31; D++) {
 						  %>
@@ -56,29 +52,27 @@
 						  <option value="<%= D %>"></option>
 
 						  <%
-						  	break;
-							}
-				 		   	case 2:
+								}
+							} else if(M==2) {
+
 				 		   		for(int D =1; D < 29; D++) {
 						  %>
 
 						  <option value="<%= D %>"></option>
 
 						  <%
-						  	break;
-							}
-				 		   	default:
+								}
+							} else {
+
 				 		   		for(int D =1; D < 32; D++) {
 						  %>
 
 						  <option value="<%= D %>"></option>
 
 						  <%
-						  	break;
-				 		   }
-				 		   }
+				 		   		}
+				 		   	}
 						  %>
-
 						  </select>日<br>
 
 		所属部署		：<select name ="sectionName">
@@ -106,12 +100,8 @@
 						  %>
 						  </select>月
 						  <select name="empD">
-						   <%
-				 		   switch(M){
-				 		   	case 4:
-				 		   	case 6:
-				 		   	case 9:
-				 		   	case 11:
+				 		  <%
+				 		   if(M == 4 || M == 6 || M == 9 || M == 11){
 
 								for(int D =1; D < 31; D++) {
 						  %>
@@ -119,28 +109,27 @@
 						  <option value="<%= D %>"></option>
 
 						  <%
-						  	break;
-							}
-				 		   	case 2:
+								}
+							} else if(M==2) {
+
 				 		   		for(int D =1; D < 29; D++) {
 						  %>
 
 						  <option value="<%= D %>"></option>
 
 						  <%
-						  	break;
-							}
-				 		   	default:
+								}
+							} else {
+
 				 		   		for(int D =1; D < 32; D++) {
 						  %>
+
 						  <option value="<%= D %>"></option>
 
 						  <%
-						  	break;
-				 		   }
-				 		   }
+				 		   		}
+				 		   	}
 						  %>
-
 						  </select>日<br>
 
 		資格			：<select name ="licenseName">
