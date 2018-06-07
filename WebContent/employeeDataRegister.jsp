@@ -136,10 +136,10 @@
 						  <option value="なし"></option>
 
 		<%
-			List<String[]> licenseList =(List<String[]>) session.getAttribute("licenseList");
+			List<String> licenseList =(List<String>) session.getAttribute("licenseList");
 			if(licenseList != null){
 
-				for(String[] i : licenseList){
+				for(String i : licenseList){
 
 		%>
 
