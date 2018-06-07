@@ -71,7 +71,7 @@ if(session.getAttribute("sectionName")!=null){
 	%>
 	<div align="center">
 	<footer>
-	<font size ="1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
+	<font size = "1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
 	</footer>
 	</div>
 </body>
