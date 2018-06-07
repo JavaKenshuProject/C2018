@@ -70,7 +70,9 @@ public class EmployeeDAO {
 
 			while (res.next()) {  // EmployeeBean型のempのフィールドに各要素を設定後、リストに追加
 
-				empList = new ArrayList<EmployeeBean>();
+				if(empList == null) {
+					empList = new ArrayList<EmployeeBean>();
+				}
 				EmployeeBean emp = new EmployeeBean();
 
 				String empCode = res.getString("emp_code");
@@ -222,7 +224,7 @@ public class EmployeeDAO {
 
 			ResultSet res = pstmt.executeQuery();
 
-			while (res.next()) {  // EmployeeBean型のempのフィールドに各要素を設定
+			if(res.next()) {  // EmployeeBean型のempのフィールドに各要素を設定
 
 				emp = new EmployeeBean();
 
