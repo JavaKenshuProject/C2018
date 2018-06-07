@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div align="center">
-		<p id="header"></p>
+		<p id="header"></p><br>
         <h1>入力された従業員コードは既に登録されています</h1>
     </div><br>
      <div align="center">

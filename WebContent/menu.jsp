@@ -16,6 +16,7 @@ if(session.getAttribute("sectionName")!=null){
         <h1 id="header">メニュー</h1>
     </div><br>
      <div align="center">
+     <br>
 
 	<%!String sectionName = null;%>
 	<%
@@ -57,7 +58,7 @@ if(session.getAttribute("sectionName")!=null){
 		}else{
 	%>
 	<div align="center">
-	<p id="header"></p>
+	<p id="header"></p><br>
 	<h3>ログイン画面に遷移します</h3>
 	</div>
 	<script>

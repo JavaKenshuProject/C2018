@@ -21,7 +21,7 @@ input {
 </head>
 <body>
 	<div align="center">
-	<p id="header"></p>
+	<p id="header"></p><br>
 	</div>
 	<%
 		int count = (int) session.getAttribute("count");
@@ -43,6 +43,7 @@ input {
 		} else {
 	%>
 	<div align="center">
+	<p id="header"></p><br>
 	<h3>1分間ログインできません</h3>
 	<script>
 		var countreset = function() {
@@ -76,7 +77,7 @@ input {
 	<%
 		}
 	%>
-	<div align="center">>
+	<div align="center">
 	<footer>
 	<font size="1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
 	</footer>

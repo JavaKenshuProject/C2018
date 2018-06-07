@@ -9,6 +9,7 @@
 </head>
 <body>
 	<div align="center">
+	<p id="header"></p><br>
 	<h2>再度IDとパスワードをご確認の上ログインしてください</h2>
 	<h3>ログイン画面に移動します</h3>
 	</div>

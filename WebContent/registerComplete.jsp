@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div align="center">
-		<p id="header"></p>
+		<p id="header"></p><br>
         <h1>登録しました。</h1>
     </div><br>
 	<div align="center">
