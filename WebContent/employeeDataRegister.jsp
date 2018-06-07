@@ -28,7 +28,7 @@
 			 			  	int M = 0;
 							for(int Y =1918; Y < 1996; Y++) {
 						  %>
-						  <option value="<%= Y %>"></option>
+						  <option value="<%= Y %>"><%= Y %></option>
 						  <%
 							}
 						  %>
@@ -37,7 +37,7 @@
 						   <%
 							for(M =1; M < 13; M++) {
 						  %>
-						  <option value="<%= M %>"></option>
+						  <option value="<%= M %>"><%= M %></option>
 						  <%
 							}
 						  %>
@@ -49,7 +49,7 @@
 								for(int D =1; D < 31; D++) {
 						  %>
 
-						  <option value="<%= D %>"></option>
+						  <option value="<%= D %>"><%= D %></option>
 
 						  <%
 								}
@@ -58,7 +58,7 @@
 				 		   		for(int D =1; D < 29; D++) {
 						  %>
 
-						  <option value="<%= D %>"></option>
+						  <option value="<%= D %>"><%= D %></option>
 
 						  <%
 								}
@@ -67,7 +67,7 @@
 				 		   		for(int D =1; D < 32; D++) {
 						  %>
 
-						  <option value="<%= D %>"></option>
+						  <option value="<%= D %>"><%= D %></option>
 
 						  <%
 				 		   		}
@@ -85,7 +85,7 @@
 					  	  <%
 							for(int Y =1918; Y < 1996; Y++) {
 						  %>
-						  <option value="<%= Y %>"></option>
+						  <option value="<%= Y %>"><%= Y %></option>
 						  <%
 							}
 						  %>
@@ -94,7 +94,7 @@
 						  <%
 							for(M =1; M < 13; M++) {
 						  %>
-						  <option value="<%= M %>"></option>
+						  <option value="<%= M %>"><%= M %></option>
 						  <%
 							}
 						  %>
@@ -106,7 +106,7 @@
 								for(int D =1; D < 31; D++) {
 						  %>
 
-						  <option value="<%= D %>"></option>
+						  <option value="<%= D %>"><%= D %></option>
 
 						  <%
 								}
@@ -115,7 +115,7 @@
 				 		   		for(int D =1; D < 29; D++) {
 						  %>
 
-						  <option value="<%= D %>"></option>
+						  <option value="<%= D %>"><%= D %></option>
 
 						  <%
 								}
@@ -124,7 +124,7 @@
 				 		   		for(int D =1; D < 32; D++) {
 						  %>
 
-						  <option value="<%= D %>"></option>
+						  <option value="<%= D %>"><%= D %></option>
 
 						  <%
 				 		   		}
@@ -133,7 +133,7 @@
 						  </select>日<br>
 
 		資格			：<select name ="licenseName">
-						  <option value="なし"></option>
+						  <option value="なし">なし</option>
 
 		<%
 			List<String> licenseList =(List<String>) session.getAttribute("licenseList");
@@ -143,7 +143,7 @@
 
 		%>
 
-						  <option value="<%=i%>"></option>
+						  <option value="<%=i%>"><%=i%></option>
 		<%
 			}
 		}
