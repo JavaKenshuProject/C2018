@@ -83,7 +83,7 @@ public class EmployeeServlet extends HttpServlet {
 			} catch (SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-			url = "employeeList.jsp";  // 従業員一覧画面
+			url = "/employeeList.jsp";  // 従業員一覧画面
 
 		} else if("検索".equals(action)) {
 
@@ -97,7 +97,7 @@ public class EmployeeServlet extends HttpServlet {
 			} catch (SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-			url = "employeeList.jsp";  // 従業員一覧画面
+			url = "/employeeList.jsp";  // 従業員一覧画面
 
 		} else if("従業員情報変更".equals(action)) {
 
@@ -120,7 +120,7 @@ public class EmployeeServlet extends HttpServlet {
 			} catch (SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-			url = "employeeDataChange.jsp";  // 従業員情報変更画面
+			url = "/employeeDataChange.jsp";  // 従業員情報変更画面
 
 		} else if("更新".equals(action)) {
 
@@ -144,10 +144,11 @@ public class EmployeeServlet extends HttpServlet {
 
 				edao.changeEmployee(empCode, lKanji, fKanji, lKana, fKana, sex, sectionCode);  // 従業員情報を変更
 
+				url = "/employeeDataChangeComplete.jsp";  // 完了画面
+
 			} catch (SQLException | ClassNotFoundException e) {
-				url = "employeeDataChangeError.jsp";  // エラー画面
+				url = "/employeeDataChangeError.jsp";  // エラー画面
 			}
-			url = "employeeDataChangeComplete.jsp";  // 完了画面
 
 		} else if("削除".equals(action)) {
 
@@ -156,12 +157,14 @@ public class EmployeeServlet extends HttpServlet {
 				if(empCode == null) {  // 従業員の未選択
 					throw new ClassNotFoundException();
 				}
+
 				edao.deleteEmployee(empCode);  // 従業員を削除
 
+				url = "/deleteComplete.jsp";  // 完了画面
+
 			} catch (SQLException | ClassNotFoundException e) {
-				url = "deleteError.jsp";  // エラー画面
+				url = "/deleteError.jsp";  // エラー画面
 			}
-			url = "deleteComplete.jsp";  // 完了画面
 
 		} else if("従業員登録".equals(action)) {
 
@@ -173,7 +176,7 @@ public class EmployeeServlet extends HttpServlet {
 			} catch (SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-			url = "employeeDataRegister.jsp";  // 従業員登録画面
+			url = "/employeeDataRegister.jsp";  // 従業員登録画面
 
 		} else if("登録".equals(action)) {
 
@@ -216,13 +219,13 @@ public class EmployeeServlet extends HttpServlet {
 					gldao.addEmployeeLicense(empCode, licenseCode, null);  // 保有資格を登録
 				}
 
-			} catch (SQLException e) {
-				url = "registerErrorDup.jsp";  // 重複登録のエラー画面
-			} catch (ClassNotFoundException e) {
-				url = "registerError.jsp";  // 入力不備のエラー画面
-			}
-			url = "registerComplete.jsp";  // 完了画面
+				url = "/registerComplete.jsp";  // 完了画面
 
+			} catch (SQLException e) {
+				url = "/registerErrorDup.jsp";  // 重複登録のエラー画面
+			} catch (ClassNotFoundException e) {
+				url = "/registerError.jsp";  // 入力不備のエラー画面
+			}
 
 		} else if("資格取得".equals(action)) {
 
@@ -239,7 +242,7 @@ public class EmployeeServlet extends HttpServlet {
 			} catch (SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-			url = "getLicense.jsp";  // 資格取得画面
+			url = "/getLicense.jsp";  // 資格取得画面
 
 		} else if("取得".equals(action)) {
 
@@ -262,12 +265,13 @@ public class EmployeeServlet extends HttpServlet {
 				GetLicenseDAO gldao = new GetLicenseDAO();
 				gldao.addEmployeeLicense(empCode, licenseCode, getDate);  // 保有資格を登録
 
+				url = "/getLicenseComplete.jsp";  // 完了画面
+
 			} catch (SQLException e) {
-				url = "getLicenseErrorDup.jsp";  // 重複登録のエラー画面
+				url = "/getLicenseErrorDup.jsp";  // 重複登録のエラー画面
 			} catch (ClassNotFoundException e) {
-				url = "getLicenseError.jsp";  // 入力不備のエラー画面
+				url = "/getLicenseError.jsp";  // 入力不備のエラー画面
 			}
-			url = "getLicenseComplete.jsp";  // 完了画面
 
 		}
 
