@@ -53,7 +53,7 @@
 						  <option value="経理部" >経理部</option>
 						  <option value="人事部" selected="selected">人事部</option>
 						  <option value="営業部" >営業部</option>
-						  <option value="総務部" ">総務部</option>
+						  <option value="総務部" >総務部</option>
 		<%
 			}else if(sectionName == "営業部"){
 		%>

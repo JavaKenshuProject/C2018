@@ -20,9 +20,9 @@
 	</div><br>
 	<form action="EmployeeServlet" method="POST">
 	<div align="right">
-		<select>
-			<option name="column" value="name">氏名</option>
-			<option name="column" value="section">部署名</option>
+		<select name="column">
+			<option value="氏名">氏名</option>
+			<option value="部署名">部署名</option>
 		</select>
 		<input type="text" name="value"><input type="submit" value="検索">
 		<hr>

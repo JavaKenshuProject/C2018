@@ -12,9 +12,9 @@
         <font size="5" color="black">登録しました。</font>
     </div><br>
 	<div align="center">
-		<p><form action="menu.jsp" method="post">
+		<form action="menu.jsp" method="post">
 		<input type="submit" value="メニュー画面に戻る">
-		</form></p>
+		</form>
 	</div>
 </body>
 </html>
