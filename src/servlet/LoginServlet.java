@@ -69,7 +69,7 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		if ("ログイン".equals(action)) {
-			if (session.getAttribute("count") ==null || (int)session.getAttribute("count")<5) {　
+			if (session.getAttribute("count") ==null || (int)session.getAttribute("count")<5) {
 				userId = request.getParameter("userId");
 				password = request.getParameter("password");
 
