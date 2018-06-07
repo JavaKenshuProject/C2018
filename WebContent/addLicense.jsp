@@ -22,7 +22,7 @@ if("総務部".equals(session.getAttribute("sectionName"))){
 	</div>
 		<div align ="right">
 		<form action = "menu.jsp" method="POST">
-			<input type="submit" value="メニューに戻る">
+			<input type="submit" value="メニュー画面に戻る">
 		</form>
 		</div>
 

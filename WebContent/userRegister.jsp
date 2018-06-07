@@ -42,7 +42,7 @@
 
     <div align="right">
   	<form action="menu.jsp" method="POST">
-		<p><input type="submit" value="メニューに戻る"></p>
+		<p><input type="submit" value="メニュー画面に戻る"></p>
 		</form>
     </div>
 
