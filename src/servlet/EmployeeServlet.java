@@ -80,10 +80,11 @@ public class EmployeeServlet extends HttpServlet {
 				List<EmployeeBean> empList = edao.getEmployee(null, null);
 				session.setAttribute("empList", empList);
 
+				url = "/employeeList.jsp";  // 従業員一覧画面
+
 			} catch (SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-			url = "/employeeList.jsp";  // 従業員一覧画面
 
 		} else if("検索".equals(action)) {
 
@@ -94,10 +95,11 @@ public class EmployeeServlet extends HttpServlet {
 				List<EmployeeBean> empList = edao.getEmployee(column, value);
 				session.setAttribute("empList", empList);
 
+				url = "/employeeList.jsp";  // 従業員一覧画面
+
 			} catch (SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-			url = "/employeeList.jsp";  // 従業員一覧画面
 
 		} else if("従業員情報変更".equals(action)) {
 
@@ -117,10 +119,11 @@ public class EmployeeServlet extends HttpServlet {
 				session.setAttribute("sex", emp.getSex());
 				session.setAttribute("sectionName", emp.getSectionName());
 
+				url = "/employeeDataChange.jsp";  // 従業員情報変更画面
+
 			} catch (SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-			url = "/employeeDataChange.jsp";  // 従業員情報変更画面
 
 		} else if("更新".equals(action)) {
 
@@ -173,10 +176,11 @@ public class EmployeeServlet extends HttpServlet {
 				List<String> licenseList = ldao.getLicenseAll();  // 資格リストを取得
 				session.setAttribute("licenseList", licenseList);  // 資格リストをセッションに保存
 
+				url = "/employeeDataRegister.jsp";  // 従業員登録画面
+
 			} catch (SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-			url = "/employeeDataRegister.jsp";  // 従業員登録画面
 
 		} else if("登録".equals(action)) {
 
@@ -239,10 +243,11 @@ public class EmployeeServlet extends HttpServlet {
 				List<String> licenseList = ldao.getLicenseAll();
 				session.setAttribute("licenseList", licenseList);
 
+				url = "/getLicense.jsp";  // 資格取得画面
+
 			} catch (SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
 			}
-			url = "/getLicense.jsp";  // 資格取得画面
 
 		} else if("取得".equals(action)) {
 
