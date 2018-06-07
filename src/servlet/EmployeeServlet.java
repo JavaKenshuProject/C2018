@@ -76,7 +76,7 @@ public class EmployeeServlet extends HttpServlet {
 		if("従業員一覧表示".equals(action)) {
 
 			try {
-				// 検索した従業員を取得してセッションに保存
+				// 全従業員を取得してセッションに保存
 				List<EmployeeBean> empList = edao.getEmployee(null, null);
 				session.setAttribute("empList", empList);
 
@@ -88,6 +88,7 @@ public class EmployeeServlet extends HttpServlet {
 
 		} else if("検索".equals(action)) {
 
+			session.removeAttribute("empList");  // 全従業員のセッションを破棄
 			String column = request.getParameter("column");  // カラム名
 			String value = request.getParameter("value");  // 値
 			try {

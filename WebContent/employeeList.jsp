@@ -24,7 +24,7 @@
 			<option value="氏名">氏名</option>
 			<option value="部署名">部署名</option>
 		</select>
-		<input type="text" name="value"><input type="submit" value="検索">
+		<input type="text" name="value"><input type="submit" name="action" value="検索">
 		<hr>
 	</div>
 	<div align="left">
@@ -99,8 +99,8 @@
 		-->
 		</script>
 		<p>
-		<input type="submit" value="従業員情報変更">
-		<input type ="submit" value="削除" onclick ="return check()">
+		<input type="submit" name="action" value="従業員情報変更">
+		<input type ="submit" name="action" value="削除" onclick ="return check()">
 		</p>
 		</div>
 		</form>
