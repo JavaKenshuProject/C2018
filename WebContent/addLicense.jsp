@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
+<link rel ="stylesheet" href ="login.css" type ="text/css">
 <title>資格追加画面</title>
 </head>
 <body>
@@ -12,7 +13,7 @@
 if("総務部".equals(session.getAttribute("sectionName"))){
 %>
 	<div align="center">
-		<h1 align ="center"><font color="#000aff">資格追加画面</font></h1>
+		<h1 id="header">資格追加画面</h1>
 		<form action ="LicenseServlet" method ="POST">
 		資格コード		：<input type ="text" width ="100" name ="licenseCode"><br>
 		資格名		    ：<input type ="text" width ="100" name ="licenseName"><br>
@@ -48,6 +49,7 @@ if("総務部".equals(session.getAttribute("sectionName"))){
 		}else{
 	%>
 	<div align="center">
+	<p id="header"></p>
 	<h3>このページにはアクセスできません</h3>
 	<h3>5秒後にメニュー画面に遷移します</h3>
 	</div>
@@ -60,5 +62,10 @@ if("総務部".equals(session.getAttribute("sectionName"))){
 	<%
 		}
 	%>
+	<div align="center">
+	<footer>
+	<font size="1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
+	</footer>
+	</div>
 </body>
 </html>

@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<link rel ="stylesheet" href ="login.css" type ="text/css">
+<title>ログインエラー解除画面</title>
 </head>
 <body>
 	<div align="center">
@@ -20,5 +21,10 @@
 		}
 		setTimeout(countreset, 3000);
 	</script>
+	<div align="center">>
+	<footer>
+	<font size="1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
+	</footer>
+	</div>
 </body>
 </html>

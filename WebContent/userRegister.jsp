@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
+<link rel ="stylesheet" href ="login.css" type ="text/css">
 <title>システム利用者登録画面</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
 	%>
 
 	<div align="center">
-        <font size="10" color="#000aff">システム利用者登録</font>
+        <h1 id="header">システム利用者登録</h1>
     </div><br>
     <div align="center">
         <form action="UserServlet" method="POST">
@@ -68,6 +69,7 @@
 		}else{
 	%>
 	<div align="center">
+	<p id="header"></p>
 	<h3>このページにはアクセスできません</h3>
 	<h3>5秒後にメニュー画面に遷移します</h3>
 	</div>
@@ -80,5 +82,10 @@
 	<%
 		}
 	%>
+	<div align="center">
+	<footer>
+	<font size="1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
+	</footer>
+	</div>
 </body>
 </html>

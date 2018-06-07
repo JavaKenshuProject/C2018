@@ -16,16 +16,20 @@ input {
 }
 </style>
 <meta charset="UTF-8" />
+<link rel ="stylesheet" href ="login.css" type ="text/css">
 <title>ログインエラー画面</title>
 </head>
 <body>
+	<div align="center">
+	<p id="header"></p>
+	</div>
 	<%
 		int count = (int) session.getAttribute("count");
 		if (count < 5) {
 	%>
 	<div align="center">
-		<font size="5" color="black">ログイン失敗(<%=count%>回目)<br>
-		</font> <font size="5" color="black">ユーザIDまたはパスワードが違います。</font>
+		<h1>ログイン失敗(<%=count%>回目)<br>
+		ユーザIDまたはパスワードが違います。</h1>
 	</div>
 	<br>
 	<div align="center">
@@ -72,5 +76,10 @@ input {
 	<%
 		}
 	%>
+	<div align="center">>
+	<footer>
+	<font size="1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
+	</footer>
+	</div>
 </body>
 </html>

@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel ="stylesheet" href ="login.css" type ="text/css">
 <title>ログイン画面</title>
 </head>
 <body>
@@ -14,7 +15,7 @@
 		if (session.getAttribute("count") == null || (int) session.getAttribute("count") < 5) {
 	%>
 	<div align="center">
-		<font size="10" color="#000aff">従業員情報管理システム</font>
+		<h1 id="header">Login</h1>
 	</div>
 	<br>
 	<div align="center">
@@ -28,7 +29,7 @@
 					<td align="left">パスワード</td>
 					<td align="left"><input type="password" name="password"></td>
 				</tr>
-			</table>
+
 			<br>
 			<%
 			if (session.getAttribute("count") != null && (int) session.getAttribute("count") == 4) {
@@ -56,13 +57,16 @@
 			<%
 				}
 			%>
-			<input type="submit" name="action" value="ログイン"
-				onClick="return check()">
+			<tr>
+				<td></td><td><input type="submit" name="action" value="ログイン"
+				onClick="return check()"></td>
+		</table>
 		</form>
-	</div>
+
 	<%
 		} else {
 	%>
+	<p id="header"></p>
 	<h1>ログインできません</h1>
 	<script>
 		var countreset = function() {
@@ -73,5 +77,9 @@
 	<%
 		}
 	%>
+	<footer>
+	<font size="1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
+	</footer>
+	</div>
 </body>
 </html>
