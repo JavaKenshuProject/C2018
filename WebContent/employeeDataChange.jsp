@@ -9,8 +9,8 @@
 </head>
 <body>
 	<%
-		String sectionName = (String)session.getAttribute("sectionName");
-		if("総務部".equals(sectionName)) {
+		String uSectionName = (String)session.getAttribute("sectionName");
+		if("総務部".equals(uSectionName)) {
 	%>
 	<h1 align ="center"><font color="#000aff">従業員情報変更画面</font></h1>
 		<form action ="EmployeeServlet" method ="POST">
@@ -20,11 +20,12 @@
 		String lKana = (String)session.getAttribute("lKana");
 		String fKana = (String)session.getAttribute("fKana");
 		byte sex =(byte)session.getAttribute("sex");
+		String sectionName = (String)session.getAttribute("sectionName2");
 		%>
-		氏名			：<input type ="text" width ="100" name ="lKanji" placeholder="<%=lKanji %>">
-		      		      <input type ="text" width ="100" name ="fKanji" placeholder="<%=fKanji%>"><br>
-		氏名（フリガナ) ：<input type ="text" width ="100" name ="lKana" placeholder="<%=lKana%>">
-						  <input type ="text" width ="100" name ="fKana" placeholder="<%=fKana%>"><br>
+		氏名			：<input type ="text" width ="100" name ="lKanji" value="<%=lKanji %>">
+		      		      <input type ="text" width ="100" name ="fKanji" value="<%=fKanji%>"><br>
+		氏名（フリガナ) ：<input type ="text" width ="100" name ="lKana" value="<%=lKana%>">
+						  <input type ="text" width ="100" name ="fKana" value="<%=fKana%>"><br>
 		<%
 			if(sex == 0){
 		%>
@@ -41,21 +42,21 @@
 
 		所属部署		：<select name ="sectionName" >
 		<%
-			if(sectionName == "経理部"){
+			if("経理部".equals(sectionName)){
 		%>
 						  <option value="経理部" selected="selected">経理部</option>
 						  <option value="人事部" >人事部</option>
 						  <option value="営業部" >営業部</option>
 						  <option value="総務部">総務部</option>
 		<%
-			}else if(sectionName == "人事部"){
+			}else if("人事部".equals(sectionName)){
 		%>
 						  <option value="経理部" >経理部</option>
 						  <option value="人事部" selected="selected">人事部</option>
 						  <option value="営業部" >営業部</option>
 						  <option value="総務部" >総務部</option>
 		<%
-			}else if(sectionName == "営業部"){
+			}else if("営業部".equals(sectionName)){
 		%>
 						  <option value="経理部" >経理部</option>
 						  <option value="人事部" >人事部</option>

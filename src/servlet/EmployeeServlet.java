@@ -118,7 +118,7 @@ public class EmployeeServlet extends HttpServlet {
 				session.setAttribute("lKana", emp.getLKana());
 				session.setAttribute("fKana", emp.getFKana());
 				session.setAttribute("sex", emp.getSex());
-				session.setAttribute("sectionName", emp.getSectionName());
+				session.setAttribute("sectionName2", emp.getSectionName());
 
 				url = "/employeeDataChange.jsp";  // 従業員情報変更画面
 
@@ -151,6 +151,7 @@ public class EmployeeServlet extends HttpServlet {
 				url = "/employeeDataChangeComplete.jsp";  // 完了画面
 
 			} catch (SQLException | ClassNotFoundException e) {
+				e.printStackTrace();
 				url = "/employeeDataChangeError.jsp";  // エラー画面
 			}
 
@@ -195,8 +196,14 @@ public class EmployeeServlet extends HttpServlet {
 
 				String birthY = request.getParameter("birthY");  // 年
 				String birthM = request.getParameter("birthM");  // 月
+				if(birthM.length() == 1) {
+					birthM = "0" + birthM;
+				}
 				String birthD = request.getParameter("birthD");  // 日
-				Date birthday = Date.valueOf(request.getParameter(birthY + birthM + birthD));  // 生年月日
+				if(birthD.length() == 1) {
+					birthD = "0" + birthD;
+				}
+				Date birthday = Date.valueOf(birthY +"-"+ birthM +"-"+ birthD);  // 生年月日
 
 				String sectionName = request.getParameter("sectionName");
 				SectionDAO sdao = new SectionDAO();
@@ -204,8 +211,14 @@ public class EmployeeServlet extends HttpServlet {
 
 				String empY = request.getParameter("empY");  // 年
 				String empM = request.getParameter("empM");  // 月
+				if(empM.length() == 1) {
+					empM = "0" + empM;
+				}
 				String empD = request.getParameter("empD");  // 日
-				Date empDate = Date.valueOf(request.getParameter(empY + empM + empD));  // 入社日
+				if(empD.length() == 1) {
+					empD = "0" + empD;
+				}
+				Date empDate = Date.valueOf(empY +"-"+ empM +"-"+ empD);  // 入社日
 
 				// 入力不備
 				if(empCode == "" || lKanji == "" || fKanji == "" || lKana == "" || fKana == ""
@@ -227,6 +240,7 @@ public class EmployeeServlet extends HttpServlet {
 				url = "/registerComplete.jsp";  // 完了画面
 
 			} catch (SQLException e) {
+				e.printStackTrace();
 				url = "/registerErrorDup.jsp";  // 重複登録のエラー画面
 			} catch (ClassNotFoundException e) {
 				url = "/registerError.jsp";  // 入力不備のエラー画面
@@ -257,8 +271,14 @@ public class EmployeeServlet extends HttpServlet {
 
 				String licenseY = request.getParameter("licenseY");  // 年
 				String licenseM = request.getParameter("licenseM");  // 月
+				if(licenseM.length() == 1) {
+					licenseM = "0" + licenseM;
+				}
 				String licenseD = request.getParameter("licenseD");  // 日
-				Date getDate = Date.valueOf(request.getParameter(licenseY + licenseM + licenseD));  // 資格取得日
+				if(licenseD.length() == 1) {
+					licenseD = "0" + licenseD;
+				}
+				Date getDate = Date.valueOf(licenseY +"-"+ licenseM +"-"+ licenseD);  // 資格取得日
 
 				if(empCode == null) {  // 入力不備
 					throw new ClassNotFoundException();

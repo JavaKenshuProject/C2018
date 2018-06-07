@@ -45,9 +45,6 @@ public class UserDAO {
 			SectionDAO secDao = new SectionDAO();
 			user.setSectionName(secDao.getSectionName(res.getString("section_code")));  // userにsectionNameをセット
 
-			System.out.println(res.getString("section_code"));
-			System.out.println(secDao.getSectionName(res.getString("section_code")));
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {

@@ -12,7 +12,7 @@
         <font size="5" color="black">文字を正しく入力してください。</font>
     </div><br>
      <div align="center">
-        <form action="employeeDateRegister.jsp" method="POST">
+        <form action="employeeDataChange.jsp" method="POST">
         	<p><input type="submit" value="戻る"></p>
         </form>
     </div>

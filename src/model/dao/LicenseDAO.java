@@ -131,7 +131,10 @@ public class LicenseDAO {
 
 			while (res.next()) {
 
-				licenseList = new ArrayList<>();
+				if(licenseList == null) {
+					licenseList = new ArrayList<>();
+				}
+
 				licenseList.add(res.getString("license_name"));
 
 			}

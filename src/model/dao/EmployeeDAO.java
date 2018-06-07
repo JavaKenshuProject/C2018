@@ -37,34 +37,40 @@ public class EmployeeDAO {
 
 		List<EmployeeBean> empList = null;  // 従業員リスト
 
-		try (Connection con = ConnectionManager.getConnection(); Statement stmt = con.createStatement()) {
+		try (Connection con = ConnectionManager.getConnection();
+				Statement stmt = con.createStatement();
+					PreparedStatement pstmt = con.prepareStatement(
+						"SELECT emp_code, l_name, f_name, l_kana_name, f_kana_name, sex, birth_day, section_name,"
+							+ " emp_date FROM m_employee e JOIN m_section s ON e.section_code = s.section_code"
+								+ " WHERE l_name like ? OR f_name like ? OR l_kana_name like ? OR f_kana_name like ?"
+									+ " OR section_name like ? ORDER BY emp_code ASC;")) {
 
 			ResultSet res = null;
 
 			if (str1 == null || str2 == null) {  // 全従業員の情報をresに保存
 
-				res = stmt.executeQuery("SELECT * FROM m_employee;");
+				res = stmt.executeQuery(
+						"SELECT emp_code, l_name, f_name, l_kana_name, f_kana_name, sex, birth_day, section_name,"
+							+ " emp_date FROM m_employee e JOIN m_section s ON e.section_code = s.section_code"
+								+ " ORDER BY emp_code ASC;");
 
 			} else {  // 検索した文字が氏名あるいは部署名に含まれている従業員の情報をresに保存
 
-				try (PreparedStatement pstmt = con.prepareStatement(
-						"SELECT * FROM m_employee WHERE l_name like \'% ? %\' or f_name like \'% ? %\' or"
-						+ "l_kana_name like \'% ? %\' or f_kana_name like \'% ? %\' or section_code like \'% ? %\';")) {
-
-					if (str1.equals("氏名")) {  // カラム名が氏名の場合
-						pstmt.setString(1, str2);
-						pstmt.setString(2, str2);
-						pstmt.setString(3, str2);
-						pstmt.setString(4, str2);
-					} else if (str1.equals("部署名")) {  // カラム名が部署名の場合
-						SectionDAO sdao = new SectionDAO();
-						String sectionCode = sdao.getSectionCode(str2);  // 部署名から部署コードを取得
-						pstmt.setString(5, sectionCode);
-					}
-
-					res = pstmt.executeQuery();
-
+				if (str1.equals("氏名")) {  // カラム名が氏名の場合
+					pstmt.setString(1, "%"+str2+"%");
+					pstmt.setString(2, "%"+str2+"%");
+					pstmt.setString(3, "%"+str2+"%");
+					pstmt.setString(4, "%"+str2+"%");
+					pstmt.setString(5, "%00%");
+				} else if (str1.equals("部署名")) {  // カラム名が部署名の場合
+					pstmt.setString(1, "%0%");
+					pstmt.setString(2, "%0%");
+					pstmt.setString(3, "%0%");
+					pstmt.setString(4, "%0%");
+					pstmt.setString(5, "%"+str2+"%");
 				}
+
+				res = pstmt.executeQuery();
 
 			}
 
@@ -83,11 +89,7 @@ public class EmployeeDAO {
 				emp.setFKana(res.getString("f_kana_name"));
 				emp.setSex(res.getByte("sex"));
 				emp.setBirthday(res.getDate("birth_day"));
-
-				String sectionCode = res.getString("section_code");
-				SectionDAO sdao = new SectionDAO();
-				String sectionName = sdao.getSectionName(sectionCode);  // 部署コードから部署名を取得
-				emp.setSectionName(sectionName);
+				emp.setSectionName(res.getString("section_name"));
 
 				emp.setEmpDate(res.getDate("emp_date"));
 
@@ -128,7 +130,7 @@ public class EmployeeDAO {
 
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(
-					"INSERT INTO m_employee VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);")) {
+					"INSERT INTO m_employee VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, current_timestamp);")) {
 
 			// データベースに従業員を挿入
 			pstmt.setString(1, empCode);
