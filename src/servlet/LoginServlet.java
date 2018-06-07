@@ -32,7 +32,8 @@ public class LoginServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	static int count=0;  // ログイン失敗の回数
+	static int count = 0; // ログイン失敗の回数
+
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -53,55 +54,54 @@ public class LoginServlet extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 *  ログインの制御メソッド
-	 *  引数のrequestオブジェクトは入力値が入ってる
-	 *  戻り値なし
+	 *      response) ログインの制御メソッド 引数のrequestオブジェクトは入力値が入ってる 戻り値なし
 	 *
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-		String action = request.getParameter("action");  //処理の種類
+		String action = request.getParameter("action"); // 処理の種類
 		String userId = null;
 		String password = null;
-		UserBean user = null;  // ログインできた場合に情報を保存
-		String url = null;  // 遷移先url
+		UserBean user = null; // ログインできた場合に情報を保存
+		String url = null; // 遷移先url
 		HttpSession session = request.getSession();
 
-
 		if ("ログイン".equals(action)) {
-			userId = request.getParameter("userId");
-			password = request.getParameter("password");
+			if (session.getAttribute("count") ==null || (int)session.getAttribute("count")<5) {
+				userId = request.getParameter("userId");
+				password = request.getParameter("password");
 
-			UserDAO uDao = new UserDAO();
-			user = uDao.getUser(userId, password);  //ログイン判定
+				UserDAO uDao = new UserDAO();
+				user = uDao.getUser(userId, password); // ログイン判定
 
-			if (user.getUserId() != null) {  // ログインできたとき
-				session.removeAttribute("count");
-				count=0;  // 失敗回数を0に
-				url = "/menu.jsp";  // メニューページに飛ぶ
-				session.setAttribute("sectionName", user.getSectionName());  // sectionNameを保存
-			} else {
-				if(session.getAttribute("count")!=null) {
-					count=(int)session.getAttribute("count");
-					count+=1;  // 失敗回数を足す
-				}else {
-					count+=1;
+				if (user.getUserId() != null) { // ログインできたとき
+					session.removeAttribute("count");
+					count = 0; // 失敗回数を0に
+					url = "/menu.jsp"; // メニューページに飛ぶ
+					session.setAttribute("sectionName", user.getSectionName()); // sectionNameを保存
+				} else {
+					if (session.getAttribute("count") != null) {
+						count = (int) session.getAttribute("count");
+						count += 1; // 失敗回数を足す
+					} else {
+						count += 1;
+					}
+
+					session.setAttribute("count", count);
+					url = "/loginError.jsp"; // エラーページに飛ぶ
 				}
-
-				session.setAttribute("count",count);
-				url = "/loginError.jsp";  // エラーページに飛ぶ
+			}else {
+				url = "/loginError.jsp"; // エラーページに飛ぶ
 			}
 
-		}
-		else if("ログアウト".equals(action)) {
-			url = "/logout.jsp";  // ログアウトページに飛ぶ
+		} else if ("ログアウト".equals(action)) {
+			url = "/logout.jsp"; // ログアウトページに飛ぶ
 		}
 
 		RequestDispatcher dispatch = request.getRequestDispatcher(url);
-		dispatch.forward(request, response);  // 遷移先
+		dispatch.forward(request, response); // 遷移先
 
 	}
 }
