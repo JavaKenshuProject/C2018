@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
+<link rel ="stylesheet" href ="login.css" type ="text/css">
 <title>メニュー画面</title>
 </head>
 <body>
@@ -12,7 +13,7 @@
 if(session.getAttribute("sectionName")!=null){
 %>
 	<div align="center">
-        <font size="10" color="#000aff">メニュー</font>
+        <h1 id="header">メニュー</h1>
     </div><br>
      <div align="center">
 
@@ -56,6 +57,7 @@ if(session.getAttribute("sectionName")!=null){
 		}else{
 	%>
 	<div align="center">
+	<p id="header"></p>
 	<h3>ログイン画面に遷移します</h3>
 	</div>
 	<script>
@@ -67,5 +69,10 @@ if(session.getAttribute("sectionName")!=null){
 	<%
 		}
 	%>
+	<div align="center">
+	<footer>
+	<font size="1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
+	</footer>
+	</div>
 </body>
 </html>
