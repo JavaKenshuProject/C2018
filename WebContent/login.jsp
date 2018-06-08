@@ -15,12 +15,12 @@
 		if (session.getAttribute("count") == null || (int) session.getAttribute("count") < 5) {
 	%>
 	<div align="center">
-		<h1 id="header">従業員情報管理システム</h1>
+		<h2 id="header">従業員情報管理システム</h2>
 	</div>
 	<br><br>
 	<div align="center">
 		<form action="LoginServlet" method="POST">
-		<h3 id="menu">ログイン</h3>
+		<h3 id="menu">ログインしてください</h3>
 			<table id="logintable">
 				<tr>
 					<td align="left">ユーザID</td>
