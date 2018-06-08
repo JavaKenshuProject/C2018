@@ -9,13 +9,14 @@
 <title>従業員情報変更画面</title>
 </head>
 <body>
-	<h2 id="header">従業員管理システム</h2>
 	<%
 		String uSectionName = (String)session.getAttribute("sectionName");
 		if("総務部".equals(uSectionName)) {
 	%>
 	<form action ="EmployeeServlet" method ="POST">
-	<div align="center"><br><br>
+	<div align="center">
+		<h2 id="header">従業員管理システム</h2>
+
 		<h3 id="menu">従業員情報変更</h3>
 		<%
 		String lKanji = (String)session.getAttribute("lKanji");
@@ -24,8 +25,8 @@
 		String fKana = (String)session.getAttribute("fKana");
 
 		byte sex = -1;
-		if(session.getAttribute("sex") == null){
-			sex =(byte)session.getAttribute("sex");
+		if(session.getAttribute("sex") != null){
+			sex = (byte)session.getAttribute("sex");
 		}
 
 		String sectionName = (String)session.getAttribute("sectionName2");
