@@ -14,15 +14,20 @@
 		String uSectionName = (String)session.getAttribute("sectionName");
 		if("総務部".equals(uSectionName)) {
 	%>
+	<form action ="EmployeeServlet" method ="POST">
 	<div align="center"><br><br>
-	<h3 id="menu">従業員情報変更</h3>
-		<form action ="EmployeeServlet" method ="POST">
+		<h3 id="menu">従業員情報変更</h3>
 		<%
 		String lKanji = (String)session.getAttribute("lKanji");
 		String fKanji = (String)session.getAttribute("fKanji");
 		String lKana = (String)session.getAttribute("lKana");
 		String fKana = (String)session.getAttribute("fKana");
-		byte sex =(byte)session.getAttribute("sex");
+
+		byte sex = -1;
+		if(session.getAttribute("sex") == null){
+			sex =(byte)session.getAttribute("sex");
+		}
+
 		String sectionName = (String)session.getAttribute("sectionName2");
 		%>
 		<table id="menutable">
@@ -99,14 +104,12 @@
 		-->
 		</script>
 		<input type ="submit" name="action" value ="更新" onclick="return check()">
-		</form>
-		</div>
+	</div>
 
 		<div align ="right">
-		<form action="employeeList.jsp" method="POST">
-		<input type="submit" value="従業員一覧画面に戻る">
-		</form>
+		<input type="submit" name="action" value="従業員一覧画面に戻る">
 		</div>
+	</form>
 	<%
 		} else {
 	%>

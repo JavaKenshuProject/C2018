@@ -73,7 +73,9 @@ public class EmployeeServlet extends HttpServlet {
 
 		EmployeeDAO edao = new EmployeeDAO(); // 従業員DAOをインスタンス化
 
-		if("従業員一覧表示".equals(action)) {
+		final String KATAKANA = "^[\\u30A0-\\u30FF]+$";
+
+		if("従業員一覧表示".equals(action) || "従業員一覧画面に戻る".equals(action)) {
 
 			try {
 				// 全従業員を取得してセッションに保存
@@ -139,7 +141,8 @@ public class EmployeeServlet extends HttpServlet {
 				String sectionName = request.getParameter("sectionName");
 
 				// 入力不備
-				if(lKanji == "" || fKanji == "" || lKana == "" || fKana == "" || (sex != 0 && sex !=1)) {
+				if(lKanji == "" || fKanji == "" || lKana == "" || fKana == "" || (sex != 0 && sex !=1)
+								|| KATAKANA.matches(lKana) == false || KATAKANA.matches(fKana) == false) {
 					throw new ClassNotFoundException();
 				}
 
@@ -221,8 +224,8 @@ public class EmployeeServlet extends HttpServlet {
 				Date empDate = Date.valueOf(empY +"-"+ empM +"-"+ empD);  // 入社日
 
 				// 入力不備
-				if(empCode == "" || lKanji == "" || fKanji == "" || lKana == "" || fKana == ""
-																		|| (sex != 0 && sex !=1)) {
+				if(empCode == "" || lKanji == "" || fKanji == "" || lKana == "" || fKana == "" ||
+					(sex != 0 && sex !=1) || KATAKANA.matches(lKana) == false || KATAKANA.matches(fKana) == false) {
 					throw new ClassNotFoundException();
 				}
 

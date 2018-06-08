@@ -103,8 +103,14 @@
 		-->
 		</script>
 		<p>
-		<input type="submit" name="action" value="従業員情報変更">
-		<input type ="submit" name="action" value="削除" onclick ="return check()">
+		<%
+			if("総務部".equals(sectionName)){
+		%>
+			<input type="submit" name="action" value="従業員情報変更">
+			<input type ="submit" name="action" value="削除" onclick ="return check()">
+		<%
+			}
+		%>
 		</p>
 		</div>
 		</form>

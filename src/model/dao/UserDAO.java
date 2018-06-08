@@ -38,9 +38,10 @@ public class UserDAO {
 
 			ResultSet res = pstmt.executeQuery();
 
-			res.next();
-			user.setUserId(res.getString("user_id")); // userにuserIdをセット
-			user.setPassword(res.getString("password")); // userにpasswordをセット
+			if(res.next()) {
+				user.setUserId(res.getString("user_id")); // userにuserIdをセット
+				user.setPassword(res.getString("password")); // userにpasswordをセット
+			}
 
 			SectionDAO secDao = new SectionDAO();
 			user.setSectionName(secDao.getSectionName(res.getString("section_code")));  // userにsectionNameをセット
