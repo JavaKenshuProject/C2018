@@ -14,8 +14,8 @@
 		<br><br><br><br>
         <h2>チェックを入れてください</h2>
 		<br><br><br><br><br>
-        <form action="employeeList.jsp" method="POST">
-        	<input type="submit" value="戻る">
+        <form action="EmployeeServlet" method="POST">
+        	<input type="submit" name="action" value="戻る">
         </form>
         <footer>
         <font size="1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
