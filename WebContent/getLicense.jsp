@@ -78,7 +78,7 @@
 
 		<br><br>
 		資格			：<select name ="licenseName">
-						  <option value ="なし">なし</option>
+						  <option value ="なし">選択してください</option>
 		<%
 		List<String> licenseList =(List<String>) session.getAttribute("licenseList");
 		if(licenseList != null){
