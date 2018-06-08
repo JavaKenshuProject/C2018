@@ -37,7 +37,7 @@
 		<td>生年月日</td><td><select name ="birthY">
 			 			  <%
 			 			  	int M = 0;
-							for(int Y =1918; Y < 1996; Y++) {
+							for(int Y =1918; Y < 2019; Y++) {
 						  %>
 						  <option value="<%= Y %>"><%= Y %></option>
 						  <%
@@ -95,7 +95,7 @@
 		</tr><tr>
 		<td>入社日</td><td><select name ="empY">
 					  	  <%
-							for(int Y =1918; Y < 1996; Y++) {
+							for(int Y =1918; Y < 2019; Y++) {
 						  %>
 						  <option value="<%= Y %>"><%= Y %></option>
 						  <%
