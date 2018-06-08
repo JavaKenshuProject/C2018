@@ -28,7 +28,7 @@
 		</select>
 		<input type="text" name="value"><input type="submit" name="action" value="検索">
 	</div>
-	<div align="left">
+	<div align="center">
 	<div id="employeetable">
 	<div id="scroll">
 		<table id="tablestyle">
@@ -105,7 +105,7 @@
 		<%
 			if("総務部".equals(sectionName)){
 		%>
-			<input type="submit" name="action" value="従業員情報変更">
+			<input type="submit" name="action" value="従業員情報変更">&nbsp;&nbsp;
 			<input type ="submit" name="action" value="削除" onclick ="return check()">
 		<%
 			}

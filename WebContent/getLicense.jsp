@@ -86,7 +86,7 @@
 		</table></div></div>
 
 
-		<div align="left">
+		<div align="center">
 		資格			：<select name ="licenseName">
 						  <option value ="なし">選択してください</option>
 		<%
@@ -103,7 +103,7 @@
 				}
 			}
 		%>
-						  </select>
+						  </select>&nbsp;&nbsp;
 
 		取得日			：<select name ="licenseY">
 			 			  <%
