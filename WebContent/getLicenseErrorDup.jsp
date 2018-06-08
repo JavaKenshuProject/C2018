@@ -10,8 +10,8 @@
 </head>
 <body>
 	<div align="center">
-		<p id="header"></p>
-        <h1>入力された情報は既に登録されています</h1>
+		<h2 id="header">従業員管理システム</h2><br><br>
+        <h2>入力された情報は既に登録されています</h2>
     </div><br>
      <div align="center">
         <form action="getLicense.jsp" method="POST">

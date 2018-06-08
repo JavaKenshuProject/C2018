@@ -21,7 +21,7 @@ if(session.getAttribute("sectionName")!=null){
      <div align="center">
      <table id="menutable">
 
-     <h3 id="menu">menu</h3>
+     <h3 id="menu">メニュー</h3>
 
 	<%!String sectionName = null;%>
 	<%

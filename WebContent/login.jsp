@@ -17,9 +17,10 @@
 	<div align="center">
 		<h1 id="header">従業員情報管理システム</h1>
 	</div>
-	<br>
+	<br><br>
 	<div align="center">
 		<form action="LoginServlet" method="POST">
+		<h3 id="menu">ログイン</h3>
 			<table id="logintable">
 				<tr>
 					<td align="left">ユーザID</td>

@@ -16,6 +16,7 @@ if("総務部".equals(session.getAttribute("sectionName"))){
 		<h2 id="header">従業員管理システム</h2><br><br><br>
 
 		<form action ="LicenseServlet" method ="POST">
+		<h3 id="menu">資格追加</h3>
 		<table id="login">
 		<tr>
 			<td>資格コード</td><td><input type ="text" width ="100" name ="licenseCode"></td>
