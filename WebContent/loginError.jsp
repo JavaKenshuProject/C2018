@@ -38,6 +38,7 @@ input {
 			window.location.href = 'menu.jsp';
 		}
 		setTimeout(countreset, 5000);
+		</script>
 	<%}else{
 		int count = (int) session.getAttribute("count");
 		if (count < 5) {
