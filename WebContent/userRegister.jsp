@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
+<link rel ="stylesheet" href ="login.css" type ="text/css">
 <title>システム利用者登録画面</title>
 </head>
 <body>
@@ -13,9 +14,10 @@
 	%>
 
 	<div align="center">
-        <font size="10" color="#000aff">システム利用者登録</font>
+        <h1 id="header">システム利用者登録</h1>
     </div><br>
     <div align="center">
+    <br><br>
         <form action="UserServlet" method="POST">
             <table>
                 <tr>
@@ -26,14 +28,16 @@
                     <td align="left">パスワード</td>
                     <td align="left"><input type="password" name="password"></td>
                 </tr>
-            </table>
-           			 所属部署<select name="sectionName">
+            	<tr>
+           			<td> 所属部署</td>
+           					<td><select name="sectionName">
            			 		<option value=null selected="selected">選択してください</option>
             				<option value="経理部">経理部</option>
             				<option value="人事部">人事部</option>
             				<option value="営業部">営業部</option>
             				<option value="総務部">総務部</option>
-            				</select>
+            				</select></td>
+            </table>
 
             <br>
             <input type="submit" value="登録" onClick="return check()">
@@ -68,6 +72,7 @@
 		}else{
 	%>
 	<div align="center">
+	<p id="header"></p><br>
 	<h3>このページにはアクセスできません</h3>
 	<h3>5秒後にメニュー画面に遷移します</h3>
 	</div>
@@ -80,5 +85,10 @@
 	<%
 		}
 	%>
+	<div align="center">
+	<footer>
+	<font size="1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
+	</footer>
+	</div>
 </body>
 </html>

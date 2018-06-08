@@ -17,7 +17,7 @@ body{
 }
 
 
-table{
+#login{
     padding: 1em 1em;
     margin: 5em 0;
     font-weight: bold;
@@ -41,6 +41,7 @@ input[type="submit"] {
     background-image: -webkit-linear-gradient(45deg, #709dff 0%, #b0c9ff 100%);
     background-image: linear-gradient(45deg, #709dff 0%, #b0c9ff 100%);
     transition: .4s;
+    margin: 0.5em 0 0;
 
 }
 
