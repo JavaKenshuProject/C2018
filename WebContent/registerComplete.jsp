@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div align="center">
-		<ｈ2 id="header">従業員管理システム</ｈ2><br><br>
+		<h2 id="header">従業員管理システム</h2><br><br>
         <h2>登録しました。</h2>
     </div><br>
 	<div align="center">
