@@ -78,8 +78,9 @@ if(session.getAttribute("sectionName")!=null){
 		}else{
 	%>
 	<div align="center">
-	<p id="header"></p><br><br>
-	<h3>ログイン画面に遷移します</h3>
+		<h2 id="header">従業員管理システム</h2>
+		<br><br><br><br>
+		<h3>ログイン画面に遷移します</h3>
 	</div>
 	<script>
 		var countreset = function() {
