@@ -13,6 +13,7 @@
 <body>
 <div align="center">
 	<h2 id="header">従業員管理システム</h2>
+	</div>
 	<%
 		String sectionName = (String)session.getAttribute("sectionName");
 		if("総務部".equals(sectionName)) {

@@ -9,7 +9,9 @@
 </head>
 <body>
 	<div align="center">
-	<p id="header"></p><br>
+	<div align="center">
+		<h2 id="header">従業員情報管理システム</h2>
+	</div>
 	<h2>再度IDとパスワードをご確認の上ログインしてください</h2>
 	<h3>ログイン画面に移動します</h3>
 	</div>
@@ -21,8 +23,8 @@
 			window.location.href = 'login.jsp';
 		}
 		setTimeout(countreset, 3000);
-	</script>
-	<div align="center">>
+	</script><br><br>
+	<div align="center">
 	<footer>
 	<font size="1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
 	</footer>

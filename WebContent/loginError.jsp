@@ -23,7 +23,7 @@ input {
 	<div align="center">
 		<h2 id="header">従業員情報管理システム</h2>
 	</div>
-	<br>
+
 	<br>
 	<%
 	if(session.getAttribute("count")==null){
@@ -60,8 +60,6 @@ input {
 		} else {
 	%>
 	<div align="center">
-		<p id="header"></p>
-		<br>
 		<h3>1分間ログインできません</h3>
 		<script>
 			var countreset = function() {
