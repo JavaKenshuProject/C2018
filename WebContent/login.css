@@ -94,8 +94,8 @@ footer{
 	padding:10px 0;          /* 上下に余白を取る */
 	border: 5px solid #fff; /* 表示領域を白枠で囲う */
 	height: 15px;          /* 縦幅の指定15px */
-	width: 80%;           /* 横の幅97% */
+	width: 81%;           /* 横の幅97% */
 	margin-bottom: 0;
-	margin-left:1em;
-	margin-right:-4em;     /* 中央揃え */
+	margin-left:0.5em;
+	margin-right:-6em;     /* 中央揃え */
 }
