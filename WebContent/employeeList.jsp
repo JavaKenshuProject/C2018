@@ -8,15 +8,17 @@
 <html>
 <head>
 <meta charset="UTF-8" />
+<link rel ="stylesheet" href ="login.css" type ="text/css">
 <title>従業員一覧画面</title>
 </head>
 <body>
+	<h2 id="header">従業員管理システム</h2>
 	<%
 		String sectionName = (String)session.getAttribute("sectionName");
 		if(sectionName != null) {
 	%>
-	<div align="center">
-		<font size ="10" color="#000aff">従業員一覧</font>
+	<div align="center"><br><br>
+		<h3 id="menu">従業員一覧</h3>
 	</div><br>
 	<form action="EmployeeServlet" method="POST">
 	<div align="right">
@@ -29,7 +31,7 @@
 	</div>
 	<div align="left">
 
-		<table>
+		<table id="employeetable">
 			<tr>
 				<th> </th>
 				<th>従業員コード</th>
@@ -69,10 +71,12 @@
 				<td><%=employee.getSectionName() %></td>
 				<td><%=employee.getEmpDate() %></td>
 				<td><%
-						if(employee.getLicenseName() != null){
+						if(employee.getLicenseNames() != null){
+							for(String license : employee.getLicenseNames()) {
 					%>
-						<%= employee.getLicenseName()%>
+								<%=license %>&nbsp;
 					<%
+							}
 						}else {
 					%>
 							なし
@@ -126,5 +130,10 @@
 	<%
 		}
 	%>
+	<div align="center">
+	<footer>
+	<font size = "1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
+	</footer>
+	</div>
 </body>
 </html>
