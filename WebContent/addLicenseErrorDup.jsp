@@ -10,12 +10,12 @@
 </head>
 <body>
 	<div align="center">
-	<p id="header"></p><br>
-        <h1>入力された情報は既に登録されています</h1>
-    </div><br>
-     <div align="center">
+		<h2 id="header">従業員管理システム</h2>
+		<br><br><br><br>
+        <h2>入力された情報は既に登録されています</h2>
+		<br><br><br><br><br>
         <form action="addLicense.jsp" method="POST">
-        	<p><input type="submit" value="戻る"></p>
+        	<input type="submit" value="戻る">
         </form>
         <footer>
          <font size="1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>

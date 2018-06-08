@@ -10,17 +10,16 @@
 </head>
 <body>
 	<div align="center">
-		<p id="header"></p><br>
-        <h1>新規資格を登録しました。</h1>
-    </div><br>
-     <div align="center">
-
-        	<form action = "menu.jsp" method="POST">
+		<h2 id="header">従業員管理システム</h2>
+		<br><br><br><br>
+        <h2>新規資格を登録しました。</h2>
+		<br><br><br><br><br>
+		<form action = "menu.jsp" method="POST">
 			<input type="submit" value="メニューに戻る">
 		</form>
 		<footer>
 		<font size="1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
 		</footer>
-        </div>
+	</div>
 </body>
 </html>
