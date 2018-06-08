@@ -14,7 +14,7 @@ if("総務部".equals(session.getAttribute("sectionName"))){
 %>
 	<div align="center">
 		<h2 id="header">従業員管理システム</h2><br><br><br>
-		資格を追加してください
+
 		<form action ="LicenseServlet" method ="POST">
 		<table id="login">
 		<tr>
