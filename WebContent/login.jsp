@@ -30,7 +30,6 @@
 					<td align="left"><input type="password" name="password"></td>
 				</tr>
 
-			<br>
 			<%
 			if (session.getAttribute("count") != null && (int) session.getAttribute("count") == 4) {
 			%>
