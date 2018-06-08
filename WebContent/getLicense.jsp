@@ -19,13 +19,15 @@
 		if("総務部".equals(sectionName)) {
 	%>
 
-	<div align ="center"><br><br>
+	<div align ="center">
 	<h3 id="menu">資格取得</h3>
 	</div>
 		<form action ="EmployeeServlet" method ="POST">
 
 	<div align="left">
-		<table id="employeetable">
+	<div id="employeetable">
+	<div id="scroll">
+		<table id="tablestyle">
 			<tr>
 				<th> </th>
 				<th>従業員コード</th>
@@ -83,9 +85,9 @@
 				}
 			}
 		%>
-		</table>
+		</table></div></div>
 
-		<br><br>
+
 		<div align="left">
 		資格			：<select name ="licenseName">
 						  <option value ="なし">選択してください</option>
@@ -108,7 +110,7 @@
 		取得日			：<select name ="licenseY">
 			 			  <%
 			 			  	int M = 0;
-							for(int Y =1918; Y < 1996; Y++) {
+							for(int Y =1918; Y < 2018; Y++) {
 						  %>
 						  <option value="<%= Y %>"><%= Y %></option>
 						  <%
@@ -156,7 +158,6 @@
 				 		   	}
 						  %>
 						  </select>日<br>
-						  <br>
 		<br>
 		<script type="text/javascript">
 		<!--
@@ -195,6 +196,11 @@
 	<%
 		}
 	%>
+
+	<div align="center">
+	<footer>
+	<font size="1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
+	</footer>
 	</div>
 </body>
 </html>

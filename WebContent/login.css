@@ -63,7 +63,21 @@ body{
 
 }
 
+#tablestyle{
+	border-collapse: collapse;
+}
 
+
+#employeetable th, #employeetable td{
+	border: 1px #808080 solid;
+}
+
+
+#scroll{
+	overflow-y: scroll;
+	width:900px;
+	height:180px;
+}
 
 
 input[type="submit"] {
