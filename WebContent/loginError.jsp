@@ -16,21 +16,36 @@ input {
 }
 </style>
 <meta charset="UTF-8" />
-<link rel ="stylesheet" href ="login.css" type ="text/css">
+<link rel="stylesheet" href="login.css" type="text/css">
 <title>ログインエラー画面</title>
 </head>
 <body>
 	<div align="center">
 		<h2 id="header">従業員情報管理システム</h2>
 	</div>
-	<br><br>
+	<br>
+	<br>
 	<%
+	if(session.getAttribute("count")==null){
+	%>
+	<div align="center">
+	<p id="header"></p><br>
+	<h3>このページにはアクセスできません</h3>
+	<h3>5秒後にメニュー画面に遷移します</h3>
+	</div>
+	<script>
+		var countreset = function() {
+			window.location.href = 'menu.jsp';
+		}
+		setTimeout(countreset, 5000);
+	<%}else{
 		int count = (int) session.getAttribute("count");
 		if (count < 5) {
 	%>
 	<div align="center">
-		<h2>ログイン失敗(<%=count%>回目)<br>
-		ユーザIDまたはパスワードが違います</h2>
+		<h2>
+			ログイン失敗(<%=count%>回目)<br> ユーザIDまたはパスワードが違います
+		</h2>
 	</div>
 	<br>
 	<div align="center">
@@ -44,20 +59,21 @@ input {
 		} else {
 	%>
 	<div align="center">
-	<p id="header"></p><br>
-	<h3>1分間ログインできません</h3>
-	<script>
-		var countreset = function() {
-			window.location.href = 'loginCountReset.jsp';
-		}
-		setTimeout(countreset, 20000);
-	</script>
+		<p id="header"></p>
+		<br>
+		<h3>1分間ログインできません</h3>
+		<script>
+			var countreset = function() {
+				window.location.href = 'loginCountReset.jsp';
+			}
+			setTimeout(countreset, 20000);
+		</script>
 
-	<form style="display: inline" name="form_count">
-		<input name="counter" type="text" style="text-align: right" size="2"
-			class="counter">
-	</form>
-	秒お待ちください
+		<form style="display: inline" name="form_count">
+			<input name="counter" type="text" style="text-align: right" size="2"
+				class="counter">
+		</form>
+		秒お待ちください
 
 	</div>
 
@@ -76,12 +92,12 @@ input {
 	</script>
 
 	<%
-		}
+		}}
 	%>
 	<div align="center">
-	<footer>
-	<font size="1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
-	</footer>
+		<footer>
+			<font size="1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
+		</footer>
 	</div>
 </body>
 </html>
