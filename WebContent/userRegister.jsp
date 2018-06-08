@@ -70,7 +70,7 @@
 		}else{
 	%>
 	<div align="center">
-	<p id="header"></p><br>
+	<h2 id="header">従業員管理システム</h2><br>
 	<h3>このページにはアクセスできません</h3>
 	<h3>5秒後にメニュー画面に遷移します</h3>
 	</div>
