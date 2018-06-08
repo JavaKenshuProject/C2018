@@ -96,6 +96,6 @@ footer{
 	height: 15px;          /* 縦幅の指定15px */
 	width: 81%;           /* 横の幅97% */
 	margin-bottom: 0;
-	margin-left:0.5em;
+	margin-left:0.2em;
 	margin-right:-6em;     /* 中央揃え */
 }
