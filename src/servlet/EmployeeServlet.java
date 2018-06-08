@@ -75,7 +75,7 @@ public class EmployeeServlet extends HttpServlet {
 
 		final String KATAKANA = "^[\\u30A0-\\u30FF]+$";
 
-		if("従業員一覧表示".equals(action) || "従業員一覧画面に戻る".equals(action)) {
+		if("従業員一覧表示".equals(action) || "従業員一覧画面に戻る".equals(action) || "戻る".equals(action)) {
 
 			try {
 				// 全従業員を取得してセッションに保存
