@@ -15,7 +15,7 @@
 		if (session.getAttribute("count") == null || (int) session.getAttribute("count") < 5) {
 	%>
 	<div align="center">
-		<h1 id="header">Login</h1>
+		<h1 id="header">従業員情報管理システム</h1>
 	</div>
 	<br>
 	<div align="center">
