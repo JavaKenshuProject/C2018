@@ -21,15 +21,16 @@ input {
 </head>
 <body>
 	<div align="center">
-	<p id="header"></p><br>
+		<h2 id="header">従業員情報管理システム</h2>
 	</div>
+	<br><br>
 	<%
 		int count = (int) session.getAttribute("count");
 		if (count < 5) {
 	%>
 	<div align="center">
-		<h1>ログイン失敗(<%=count%>回目)<br>
-		ユーザIDまたはパスワードが違います。</h1>
+		<h2>ログイン失敗(<%=count%>回目)<br>
+		ユーザIDまたはパスワードが違います</h2>
 	</div>
 	<br>
 	<div align="center">
