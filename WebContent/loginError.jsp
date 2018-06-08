@@ -29,7 +29,7 @@ input {
 	if(session.getAttribute("count")==null){
 	%>
 	<div align="center">
-	<p id="header"></p><br>
+	<br>
 	<h3>このページにはアクセスできません</h3>
 	<h3>5秒後にメニュー画面に遷移します</h3>
 	</div>
@@ -66,7 +66,7 @@ input {
 			var countreset = function() {
 				window.location.href = 'loginCountReset.jsp';
 			}
-			setTimeout(countreset, 20000);
+			setTimeout(countreset, 60000);
 		</script>
 
 		<form style="display: inline" name="form_count">
@@ -79,7 +79,7 @@ input {
 
 	<script type="text/javascript">
 	<!--
-		count = 20; //カウントの初期値
+		count = 60; //カウントの初期値
 		timerID = setInterval('countdown()', 1000); //1秒毎にcountup()を呼び出し
 
 		function countdown() {
