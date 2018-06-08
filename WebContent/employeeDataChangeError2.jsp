@@ -14,7 +14,7 @@
         <h1>チェックを入れてください</h1>
     </div><br>
      <div align="center">
-        <form action="employeeDataChange.jsp" method="POST">
+        <form action="employeeList.jsp" method="POST">
         	<p><input type="submit" value="戻る"></p>
         </form>
         <footer>
