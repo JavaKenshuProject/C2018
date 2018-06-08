@@ -88,12 +88,14 @@ input[type="submit"] {
 
 footer{
 
-	background-color: #c0c0c0;   /* 背景色(黒) */
-	position: relative;       /* 絶対位置指定することを定義 */
+	background-color: #c0c0c0;   /* 背景色 */
+	position:fixed;       /* 絶対位置指定することを定義 */
 	bottom: 0px;              /* 絶対位置指定(左0px,下0px) */
-	padding: 10px 0;          /* 上下に余白を取る */
+	padding:10px 0;          /* 上下に余白を取る */
 	border: 5px solid #fff; /* 表示領域を白枠で囲う */
 	height: 15px;          /* 縦幅の指定15px */
-	width: 100%;           /* 横の幅97% */
-	margin: auto;           /* 中央揃え */
+	width: 80%;           /* 横の幅97% */
+	margin-bottom: 0;
+	margin-left:1em;
+	margin-right:-4em;     /* 中央揃え */
 }
