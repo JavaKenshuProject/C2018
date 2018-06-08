@@ -97,9 +97,11 @@ public class EmployeeDAO {
 				List<String> licenseCodes = gldao.getLicenseCodes(empCode);  // 従業員コードから資格コードを取得
 				LicenseDAO ldao = new LicenseDAO();
 				List<String> licenseNames = new ArrayList<>();
-				for(int i = 0; i < licenseCodes.size(); i++) {
-					String license = ldao.getLicenseName(licenseCodes.get(i));  // 資格コードから資格名を取得
-					licenseNames.add(license);
+				if(licenseCodes != null) {
+					for(int i = 0; i < licenseCodes.size(); i++) {
+						String license = ldao.getLicenseName(licenseCodes.get(i));  // 資格コードから資格名を取得
+						licenseNames.add(license);
+					}
 				}
 				emp.setLicenseNames(licenseNames);
 
