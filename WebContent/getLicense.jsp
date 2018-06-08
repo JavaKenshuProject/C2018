@@ -11,15 +11,13 @@
 <title>資格取得画面</title>
 </head>
 <body>
-<div align="center">
-	<h2 id="header">従業員管理システム</h2>
-	</div>
 	<%
 		String sectionName = (String)session.getAttribute("sectionName");
 		if("総務部".equals(sectionName)) {
 	%>
 
 	<div align ="center">
+	<h2 id="header">従業員管理システム</h2>
 	<h3 id="menu">資格取得</h3>
 	</div>
 		<form action ="EmployeeServlet" method ="POST">
@@ -184,7 +182,8 @@
 		} else {
 	%>
 	<div align="center">
-	<h3 >このページにはアクセスできません</h3>
+	<h2 id="header">従業員管理システム</h2><br><br>
+	<h3>このページにはアクセスできません</h3>
 	<h3>5秒後にメニュー画面へ遷移します</h3>
 	</div>
 	<script>

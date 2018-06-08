@@ -11,12 +11,12 @@
 <title>従業員登録画面</title>
 </head>
 <body>
-	<h2 id="header">従業員管理システム</h2>
 	<%
 		String sectionName = (String)session.getAttribute("sectionName");
 		if("総務部".equals(sectionName) || "人事部".equals(sectionName)) {
 	%>
-		<div align ="center"><br><br>
+		<div align ="center">
+		<h2 id="header">従業員管理システム</h2>
 		<h3 id="menu">従業員登録</h3>
 
 
@@ -163,7 +163,6 @@
 						  </select></td>
 		</tr>
 		</table>
-		<br>
 		<script type="text/javascript">
 		<!--
 			function check() {

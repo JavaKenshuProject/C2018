@@ -10,7 +10,7 @@
 <body>
 	<div align="center">
 	<div align="center">
-		<h2 id="header">従業員情報管理システム</h2>
+		<h2 id="header">従業員管理システム</h2>
 	</div>
 	<h2>再度IDとパスワードをご確認の上ログインしてください</h2>
 	<h3>ログイン画面に移動します</h3>

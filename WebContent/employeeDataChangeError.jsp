@@ -12,7 +12,7 @@
 	<div align="center">
 		<h2 id="header">従業員管理システム</h2>
 		<br><br><br><br>
-        <h2>文字を正しく入力してください。</h2>
+        <h2>文字を正しく入力してください</h2>
 		<br><br><br><br><br>
         <form action="employeeDataChange.jsp" method="POST">
         	<input type="submit" value="戻る">

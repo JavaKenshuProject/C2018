@@ -21,7 +21,7 @@ input {
 </head>
 <body>
 	<div align="center">
-		<h2 id="header">従業員情報管理システム</h2>
+		<h2 id="header">従業員管理システム</h2>
 	</div>
 
 	<br>
@@ -60,6 +60,8 @@ input {
 		} else {
 	%>
 	<div align="center">
+		<h2 id="header">従業員管理システム</h2>
+		<br><br><br><br>
 		<h3>1分間ログインできません</h3>
 		<script>
 			var countreset = function() {

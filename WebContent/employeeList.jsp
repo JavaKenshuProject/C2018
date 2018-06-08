@@ -12,12 +12,12 @@
 <title>従業員一覧画面</title>
 </head>
 <body>
-	<h2 id="header">従業員管理システム</h2>
 	<%
 		String sectionName = (String)session.getAttribute("sectionName");
 		if(sectionName != null) {
 	%>
 	<div align="center">
+		<h2 id="header">従業員管理システム</h2>
 		<h3 id="menu">従業員一覧</h3>
 	</div>
 	<form action="EmployeeServlet" method="POST">
@@ -82,8 +82,7 @@
 							なし
 					<%
 						}
-					%>
-					</td>
+					%></td>
 			</tr>
 		<%
 				}
@@ -124,7 +123,8 @@
 		} else {
 	%>
 	<div align="center">
-	<h3 >このページにはアクセスできません</h3>
+	<h2 id="header">従業員管理システム</h2><br><br>
+	<h3>このページにはアクセスできません</h3>
 	<h3>5秒後にメニュー画面へ遷移します</h3>
 	</div>
 	<script>
