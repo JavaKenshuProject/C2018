@@ -17,9 +17,9 @@
 		String sectionName = (String)session.getAttribute("sectionName");
 		if(sectionName != null) {
 	%>
-	<div align="center"><br><br>
+	<div align="center">
 		<h3 id="menu">従業員一覧</h3>
-	</div><br>
+	</div>
 	<form action="EmployeeServlet" method="POST">
 	<div align="right">
 		<select name="column">
@@ -27,11 +27,11 @@
 			<option value="部署名">部署名</option>
 		</select>
 		<input type="text" name="value"><input type="submit" name="action" value="検索">
-		<hr>
 	</div>
 	<div align="left">
-
-		<table id="employeetable">
+	<div id="employeetable">
+	<div id="scroll">
+		<table id="tablestyle">
 			<tr>
 				<th> </th>
 				<th>従業員コード</th>
@@ -89,7 +89,7 @@
 				}
 			}
 		%>
-		</table>
+		</table></div></div>
 		<script type="text/javascript">
 		<!--
 			function check() {
