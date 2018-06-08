@@ -6,6 +6,9 @@
 <head>
 <meta charset="UTF-8" />
 <link rel ="stylesheet" href ="login.css" type ="text/css">
+<style type="text/css">
+#btn{width:150px;}
+</style>
 <title>メニュー画面</title>
 </head>
 <body>
@@ -13,26 +16,28 @@
 if(session.getAttribute("sectionName")!=null){
 %>
 	<div align="center">
-        <h1 id="header">メニュー</h1>
-    </div><br>
+        <h2 id="header">従業員管理システム</h2>
+    </div><br><br>
      <div align="center">
-     <br>
+     <table id="menutable">
+
+     <h3 id="menu">menu</h3>
 
 	<%!String sectionName = null;%>
 	<%
 		sectionName = (String) session.getAttribute("sectionName");
 	%>
 	<form action="EmployeeServlet" method="POST">
-		<p><input type="submit" name="action" value="従業員一覧表示"></p>
+		<tr><td><input type="submit" name="action" value="従業員一覧表示" id="btn"></td></tr>
 		<%
 			if("総務部".equals(sectionName)||"人事部".equals(sectionName)){
 		%>
-       	<p><input type="submit" name="action" value="従業員登録"></p>
+       	<tr><td><input type="submit" name="action" value="従業員登録" id="btn"></td>
        	<%
 			}
 			if("総務部".equals(sectionName)){
        	%>
-       	<p><input type="submit" name="action" value="資格取得"></p>
+       	<tr><td><input type="submit" name="action" value="資格取得" id="btn"></td></tr>
        	<%
 			}
        	%>
@@ -41,24 +46,24 @@ if(session.getAttribute("sectionName")!=null){
 			if("総務部".equals(sectionName)){
        	%>
     <form action="addLicense.jsp" method="POST">
-    	<p><input type="submit" name="action" value="資格追加"></p>
+    	<tr><td><input type="submit" name="action" value="資格追加" id="btn"></td></tr>
     </form>
     <form action="userRegister.jsp" method="POST">
-    	<p><input type="submit" name="action" value="システム利用者登録"></p>
+    	<tr><td><input type="submit" name="action" value="システム利用者登録" id="btn"></td></tr>
     </form>
    		<%
 			}
    		%>
 	<form action="LoginServlet" method="POST">
-		<p><input type ="submit" name="action" value="ログアウト"></p>
+		<tr><td><input type ="submit" name="action" value="ログアウト" id="btn"></td></tr>
 	</form>
-
+	</table>
 	</div>
 <%
 		}else{
 	%>
 	<div align="center">
-	<p id="header"></p><br>
+	<p id="header"></p><br><br>
 	<h3>ログイン画面に遷移します</h3>
 	</div>
 	<script>

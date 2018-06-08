@@ -20,7 +20,7 @@
 	<br>
 	<div align="center">
 		<form action="LoginServlet" method="POST">
-			<table id="login">
+			<table id="logintable">
 				<tr>
 					<td align="left">ユーザID</td>
 					<td align="left"><input type="text" name="userId"></td>

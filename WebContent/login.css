@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
 
 #header{
-	color:#58656e;
+	color:#808080;
 	background-color:#e4f0fc;
 	position: absolute;		/* 絶対位置指定することを定義 */
 	padding: 2px 0px;          /* 上下に余白を取る */
@@ -12,19 +12,40 @@
 }
 
 
+
+
 body{
 	font-family: "Noto Sans JP";
 }
 
 
-#login{
-    padding: 1em 1em;
+#menu{
+	padding-bottom: .5em;
+  border-bottom: 1px solid #ccc;
+}
+
+
+#logintable{
+    padding: 2em 2em;
     margin: 5em 0;
     font-weight: bold;
     color: #808080;/*文字色*/
     background: #FFF;
-    border: solid 3px #e4f0fc;/*線*/
+    border: 10px double #e4f0fc;/*線*/
     border-radius: 5px;/*角の丸み*/
+
+}
+
+
+#menutable{
+    padding: 2em 15em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #808080;/*文字色*/
+    background: #FFF;
+    border: 10px double #e4f0fc;/*線*/
+    border-radius: 5px;/*角の丸み*/
+
 }
 
 

@@ -14,7 +14,7 @@
         <h1>入力された情報に不備があります</h1>
     </div><br>
      <div align="center">
-        <form action="employeeRegister.jsp" method="POST">
+        <form action="employeeDataRegister.jsp" method="POST">
         	<p><input type="submit" value="戻る"></p>
         </form>
         <footer>
