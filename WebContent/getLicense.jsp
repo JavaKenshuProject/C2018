@@ -64,11 +64,13 @@
 				<td><%=employee.getSectionName() %></td>
 				<td><%=employee.getEmpDate() %></td>
 				<td><%
-						if(employee.getLicenseName() != null){
+						if(employee.getLicenseNames() != null){
+							for(String license : employee.getLicenseNames()){
 					%>
-						<%= employee.getLicenseName()%>
+						<%=license %>&nbsp;
 					<%
-						}else {
+							}
+						}else{
 					%>
 							なし
 					<%
