@@ -18,13 +18,13 @@
 		if("総務部".equals(sectionName)) {
 	%>
 
-	<div align ="center">
+	<div align ="center"><br><br>
 	<h3 id="menu">資格取得</h3>
 	</div>
 		<form action ="EmployeeServlet" method ="POST">
 
 	<div align="left">
-		<table>
+		<table id="employeetable">
 			<tr>
 				<th> </th>
 				<th>従業員コード</th>

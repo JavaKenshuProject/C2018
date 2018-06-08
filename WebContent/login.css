@@ -49,6 +49,17 @@ body{
 }
 
 
+#employeetable{
+	padding: 2em 5em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #808080;/*文字色*/
+    background: #FFF;
+    border: 10px double #e4f0fc;/*線*/
+    border-radius: 5px;/*角の丸み*/
+
+}
+
 
 
 

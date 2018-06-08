@@ -10,8 +10,8 @@
 </head>
 <body>
 	<div align="center">
-		<p id="header"></p><br><br>
-        <h1>登録しました。</h1>
+		<ｈ2 id="header">従業員管理システム</ｈ2><br><br>
+        <h2>登録しました。</h2>
     </div><br>
 	<div align="center">
 		<form action="employeeDataRegister.jsp" method="post">

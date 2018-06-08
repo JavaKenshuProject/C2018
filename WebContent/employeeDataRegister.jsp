@@ -7,23 +7,34 @@
 <html>
 <head>
 <meta charset="UTF-8" />
+<link rel ="stylesheet" href ="login.css" type ="text/css">
 <title>従業員登録画面</title>
 </head>
 <body>
+	<h2 id="header">従業員管理システム</h2>
 	<%
 		String sectionName = (String)session.getAttribute("sectionName");
 		if("総務部".equals(sectionName) || "人事部".equals(sectionName)) {
 	%>
-		<h1 align ="center"><font color="#000aff">従業員登録画面</font></h1>
+		<div align ="center"><br><br>
+		<h3 id="menu">従業員登録</h3>
+
+
 		<form action ="EmployeeServlet" method ="POST">
-		従業員コード	：<input type ="text" width ="100" name ="empCode"><br>
-		氏名			：<input type ="text" width ="100" name ="lKanji">
-		      		      <input type ="text" width ="100" name ="fKanji"><br>
-		氏名（フリガナ) ：<input type ="text" width ="100" name ="lKana">
-						  <input type ="text" width ="100" name ="fKana"><br>
-		性別			：<input type ="radio" name ="sex" value="0">男性
-			              <input type ="radio" name="sex" value ="1">女性<br>
-		生年月日		：<select name ="birthY">
+		<table id="menutable">
+		<tr>
+		<td>従業員コード</td><td><input type ="text" width ="100" name ="empCode"></td>
+		</tr><tr>
+		<td>氏名</td><td><input type ="text" width ="100" name ="lKanji">
+		      		      <input type ="text" width ="100" name ="fKanji"></td>
+		</tr><tr>
+		<td>氏名（フリガナ)</td><td><input type ="text" width ="100" name ="lKana">
+						  <input type ="text" width ="100" name ="fKana"></td>
+		</tr><tr>
+		<td>性別</td><td><input type ="radio" name ="sex" value="0">男性
+			              <input type ="radio" name="sex" value ="1">女性</td>
+		</tr><tr>
+		<td>生年月日</td><td><select name ="birthY">
 			 			  <%
 			 			  	int M = 0;
 							for(int Y =1918; Y < 1996; Y++) {
@@ -73,15 +84,16 @@
 				 		   		}
 				 		   	}
 						  %>
-						  </select>日<br>
-
-		所属部署		：<select name ="sectionName">
+						  </select>日</td>
+		</tr><tr>
+		<td>所属部署</td><td><select name ="sectionName">
 						  <option value ="経理部">経理部</option>
 						  <option value ="人事部">人事部</option>
 						  <option value ="営業部">営業部</option>
 						  <option value ="総務部">総務部</option>
-						  </select><br>
-		入社日			：<select name ="empY">
+						  </select></td>
+		</tr><tr>
+		<td>入社日</td><td><select name ="empY">
 					  	  <%
 							for(int Y =1918; Y < 1996; Y++) {
 						  %>
@@ -130,9 +142,9 @@
 				 		   		}
 				 		   	}
 						  %>
-						  </select>日<br>
-
-		資格			：<select name ="licenseName">
+						  </select>日</td>
+		</tr><tr>
+		<td>資格</td><td><select name ="licenseName">
 						  <option value="なし">なし</option>
 
 		<%
@@ -148,7 +160,9 @@
 			}
 		}
 		%>
-						  </select><br>
+						  </select></td>
+		</tr>
+		</table>
 		<br>
 		<script type="text/javascript">
 		<!--
@@ -164,6 +178,7 @@
 		</script>
 		<input type ="submit" name="action" value ="登録" onclick ="return check()">
 		</form>
+		</div>
 
 		<div align ="right">
 		<form action="menu.jsp" method="POST">
@@ -174,7 +189,8 @@
 		} else {
 	%>
 	<div align="center">
-	<h3 >このページにはアクセスできません</h3>
+	<h2 id="header">従業員管理システム</h2><br><br>
+	<h3>このページにはアクセスできません</h3>
 	<h3>5秒後にメニュー画面へ遷移します</h3>
 	</div>
 	<script>
@@ -186,5 +202,11 @@
 	<%
 		}
 	%>
+
+	<div align="center">
+	<footer>
+	<font size = "1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
+	</footer>
+	</div>
 </body>
 </html>
