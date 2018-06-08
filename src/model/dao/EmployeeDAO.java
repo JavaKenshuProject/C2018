@@ -94,10 +94,14 @@ public class EmployeeDAO {
 				emp.setEmpDate(res.getDate("emp_date"));
 
 				GetLicenseDAO gldao = new GetLicenseDAO();
-				String licenseCode = gldao.getLicenseCode(empCode);
+				List<String> licenseCodes = gldao.getLicenseCodes(empCode);  // 従業員コードから資格コードを取得
 				LicenseDAO ldao = new LicenseDAO();
-				String licenseName = ldao.getLicenseName(licenseCode);  // 資格コードから資格名を取得
-				emp.setLicenseName(licenseName);
+				List<String> licenseNames = new ArrayList<>();
+				for(int i = 0; i < licenseCodes.size(); i++) {
+					String license = ldao.getLicenseName(licenseCodes.get(i));  // 資格コードから資格名を取得
+					licenseNames.add(license);
+				}
+				emp.setLicenseNames(licenseNames);
 
 				empList.add(emp);
 

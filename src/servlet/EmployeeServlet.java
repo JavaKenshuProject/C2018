@@ -123,7 +123,7 @@ public class EmployeeServlet extends HttpServlet {
 				url = "/employeeDataChange.jsp";  // 従業員情報変更画面
 
 			} catch (SQLException | ClassNotFoundException e) {
-				e.printStackTrace();
+				url = "/employeeDataChangeError2.jsp";  // エラー画面
 			}
 
 		} else if("更新".equals(action)) {
@@ -226,13 +226,15 @@ public class EmployeeServlet extends HttpServlet {
 					throw new ClassNotFoundException();
 				}
 
+
+
 				// 従業員を登録
 				edao.addEmployee(empCode, lKanji, fKanji, lKana, fKana, sex, birthday, sectionCode, empDate);
 
 				String licenseName = request.getParameter("licenseName");
 				if("なし".equals(licenseName) == false) {  // 資格を保有している場合
 					LicenseDAO ldao = new LicenseDAO();
-					String licenseCode = ldao.getLicenseName(licenseName);  // 資格名から資格コードを取得
+					String licenseCode = ldao.getLicenseCode(licenseName);  // 資格名から資格コードを取得
 					GetLicenseDAO gldao = new GetLicenseDAO();
 					gldao.addEmployeeLicense(empCode, licenseCode, null);  // 保有資格を登録
 				}
@@ -242,7 +244,7 @@ public class EmployeeServlet extends HttpServlet {
 			} catch (SQLException e) {
 				e.printStackTrace();
 				url = "/registerErrorDup.jsp";  // 重複登録のエラー画面
-			} catch (ClassNotFoundException e) {
+			} catch (NumberFormatException | ClassNotFoundException e) {
 				url = "/registerError.jsp";  // 入力不備のエラー画面
 			}
 
@@ -280,13 +282,14 @@ public class EmployeeServlet extends HttpServlet {
 				}
 				Date getDate = Date.valueOf(licenseY +"-"+ licenseM +"-"+ licenseD);  // 資格取得日
 
-				if(empCode == null) {  // 入力不備
+				String licenseName = request.getParameter("licenseName");
+
+				if(empCode == null || "なし".equals(licenseName)) {  // 入力不備
 					throw new ClassNotFoundException();
 				}
 
-				String licenseName = request.getParameter("licenseName");
 				LicenseDAO ldao = new LicenseDAO();
-				String licenseCode = ldao.getLicenseName(licenseName);  // 資格名から資格コードを取得
+				String licenseCode = ldao.getLicenseCode(licenseName);  // 資格名から資格コードを取得
 
 				GetLicenseDAO gldao = new GetLicenseDAO();
 				gldao.addEmployeeLicense(empCode, licenseCode, getDate);  // 保有資格を登録

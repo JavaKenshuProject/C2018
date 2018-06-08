@@ -11,6 +11,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 保有資格登録に関するデータベース接続
@@ -55,9 +57,9 @@ public class GetLicenseDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public String getLicenseCode(String empCode) throws SQLException, ClassNotFoundException {
+	public List<String> getLicenseCodes(String empCode) throws SQLException, ClassNotFoundException {
 
-		String licenseCode = null;
+		List<String> licenseCodes = null;
 
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(
@@ -67,13 +69,17 @@ public class GetLicenseDAO {
 
 			ResultSet res = pstmt.executeQuery();
 
-			if(res.next()) {
-				licenseCode = res.getString("license_code");
+			while(res.next()) {
+				if(licenseCodes == null) {
+					licenseCodes = new ArrayList<>();
+				}
+				licenseCodes.add(res.getString("license_code"));
 			}
 
 		}
 
-		return licenseCode;
+		return licenseCodes;
+
 	}
 
 }

@@ -7,6 +7,7 @@
 package model.entity;
 
 import java.sql.Date;
+import java.util.List;
 
 /**
  * 従業員情報クラス
@@ -26,7 +27,7 @@ public class EmployeeBean {
 	private Date birthday;  // 生年月日
 	private String sectionName;  // 所属部署名
 	private Date empDate;  // 入社日
-	private String licenseName;  // 保有資格
+	private List<String> licenseNames;  // 保有資格
 
 	public String getEmpCode() {
 		return empCode;
@@ -55,8 +56,8 @@ public class EmployeeBean {
 	public Date getEmpDate() {
 		return empDate;
 	}
-	public String getLicenseName() {
-		return licenseName;
+	public List<String> getLicenseNames() {
+		return licenseNames;
 	}
 	public void setEmpCode(String empCode) {
 		this.empCode = empCode;
@@ -85,8 +86,8 @@ public class EmployeeBean {
 	public void setEmpDate(java.sql.Date empDate) {
 		this.empDate = empDate;
 	}
-	public void setLicenseName(String licenseName) {
-		this.licenseName = licenseName;
+	public void setLicenseNames(List<String> licenseNames) {
+		this.licenseNames = licenseNames;
 	}
 
 }
