@@ -14,12 +14,12 @@
 	%>
 
 	<div align="center">
-        <h1 id="header">システム利用者登録</h1>
+        <h2 id="header">従業員管理システム</h2>
     </div><br>
     <div align="center">
-    <br><br>
+    <h3 id="menu">システム利用者登録</h3>
         <form action="UserServlet" method="POST">
-            <table>
+            <table id="logintable">
                 <tr>
                     <td align="left">ユーザID</td>
                     <td align="left"><input type="text" name="userId"></td>
@@ -38,8 +38,6 @@
             				<option value="総務部">総務部</option>
             				</select></td>
             </table>
-
-            <br>
             <input type="submit" value="登録" onClick="return check()">
         </form>
     </div>

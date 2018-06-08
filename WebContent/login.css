@@ -3,11 +3,11 @@
 #header{
 	color:#808080;
 	background-color:#e4f0fc;
-	position: absolute;		/* 絶対位置指定することを定義 */
+	position: relative;		/* 絶対位置指定することを定義 */
 	padding: 2px 0px;          /* 上下に余白を取る */
 	border: 5px solid #fff; /* 表示領域を白枠で囲う */
-	height: 40px;          /* 縦幅の指定15px */
-	width: 97%;           /* 横の幅97% */
+	height: 40px;          /* 縦幅の指定40px */
+	width: 100%;           /* 横の幅97% */
 	margin: auto;           /* 中央揃え */
 }
 
@@ -16,6 +16,9 @@
 
 body{
 	font-family: "Noto Sans JP";
+	margin-right:auto;
+	margin-left:auto;
+	padding:0px 8em ;
 }
 
 
@@ -86,11 +89,11 @@ input[type="submit"] {
 footer{
 
 	background-color: #c0c0c0;   /* 背景色(黒) */
-	position: absolute;       /* 絶対位置指定することを定義 */
+	position: relative;       /* 絶対位置指定することを定義 */
 	bottom: 0px;              /* 絶対位置指定(左0px,下0px) */
 	padding: 10px 0;          /* 上下に余白を取る */
 	border: 5px solid #fff; /* 表示領域を白枠で囲う */
 	height: 15px;          /* 縦幅の指定15px */
-	width: 97%;           /* 横の幅97% */
+	width: 100%;           /* 横の幅97% */
 	margin: auto;           /* 中央揃え */
 }

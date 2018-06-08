@@ -13,18 +13,17 @@
 if("総務部".equals(session.getAttribute("sectionName"))){
 %>
 	<div align="center">
-		<h2 id="header">従業員管理システム</h2><br><br><br>
+		<h2 id="header">従業員管理システム</h2><br>
 
 		<form action ="LicenseServlet" method ="POST">
 		<h3 id="menu">資格追加</h3>
-		<table id="login">
+		<table id="logintable">
 		<tr>
 			<td>資格コード</td><td><input type ="text" width ="100" name ="licenseCode"></td>
 		</tr><tr>
 			<td>資格名</td><td><input type ="text" width ="100" name ="licenseName"></td>
 		</tr>
 		</table>
-		<br>
 		<input type ="submit" value ="追加" onClick="return check()">
 		</form>
 	</div>

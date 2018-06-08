@@ -5,14 +5,17 @@
 <html>
 <head>
 <meta charset="UTF-8" />
+<link rel ="stylesheet" href ="login.css" type ="text/css">
 <title>従業員情報変更画面</title>
 </head>
 <body>
+	<h2 id="header">従業員管理システム</h2>
 	<%
 		String uSectionName = (String)session.getAttribute("sectionName");
 		if("総務部".equals(uSectionName)) {
 	%>
-	<h1 align ="center"><font color="#000aff">従業員情報変更画面</font></h1>
+	<div align="center"><br><br>
+	<h3 id="menu">従業員情報変更</h3>
 		<form action ="EmployeeServlet" method ="POST">
 		<%
 		String lKanji = (String)session.getAttribute("lKanji");
@@ -22,25 +25,32 @@
 		byte sex =(byte)session.getAttribute("sex");
 		String sectionName = (String)session.getAttribute("sectionName2");
 		%>
-		氏名			：<input type ="text" width ="100" name ="lKanji" value="<%=lKanji %>">
-		      		      <input type ="text" width ="100" name ="fKanji" value="<%=fKanji%>"><br>
-		氏名（フリガナ) ：<input type ="text" width ="100" name ="lKana" value="<%=lKana%>">
-						  <input type ="text" width ="100" name ="fKana" value="<%=fKana%>"><br>
+		<table id="menutable">
+		<tr>
+		<td>氏名</td><td><input type ="text" width ="100" name ="lKanji" value="<%=lKanji %>">
+		      		      <input type ="text" width ="100" name ="fKanji" value="<%=fKanji%>"></td>
+		<tr>
+		<td>氏名（フリガナ)</td><td><input type ="text" width ="100" name ="lKana" value="<%=lKana%>">
+						  <input type ="text" width ="100" name ="fKana" value="<%=fKana%>"></td>
 		<%
 			if(sex == 0){
 		%>
-		性別			：<input type ="radio" name ="sex" value="0" checked>男性
-			              <input type ="radio" name="sex" value ="1" >女性<br>
+		<tr>
+		<td>性別</td><td><input type ="radio" name ="sex" value="0" checked>男性
+			              <input type ="radio" name="sex" value ="1" >女性</td>
+		</tr>
 		<%
 			}else {
 		%>
-		性別			：<input type ="radio" name ="sex" value="0" >男性
-			              <input type ="radio" name="sex" value ="1" checked>女性<br>
+		<tr>
+		<td>性別</td><td><input type ="radio" name ="sex" value="0" >男性
+			              <input type ="radio" name="sex" value ="1" checked>女性</td>
+		</tr>
 		<%
 			}
 		%>
-
-		所属部署		：<select name ="sectionName" >
+		<tr>
+		<td>所属部署</td><td><select name ="sectionName" >
 		<%
 			if("経理部".equals(sectionName)){
 		%>
@@ -72,8 +82,9 @@
 		<%
 			}
 		%>
-						  </select><br>
-
+						  </select></td>
+		</tr>
+		</table>
 		<br>
 		<script type="text/javascript">
 		<!--
@@ -89,6 +100,7 @@
 		</script>
 		<input type ="submit" name="action" value ="更新" onclick="return check()">
 		</form>
+		</div>
 
 		<div align ="right">
 		<form action="employeeList.jsp" method="POST">
@@ -99,7 +111,8 @@
 		} else {
 	%>
 	<div align="center">
-	<h3 >このページにはアクセスできません</h3>
+	<h2 id="header">従業員管理システム</h2><br><br>
+	<h3>このページにはアクセスできません</h3>
 	<h3>5秒後にメニュー画面へ遷移します</h3>
 	</div>
 	<script>
@@ -111,5 +124,11 @@
 	<%
 		}
 	%>
+
+	<div align="center">
+	<footer>
+	<font size="1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>
+	</footer>
+	</div>
 </body>
 </html>
