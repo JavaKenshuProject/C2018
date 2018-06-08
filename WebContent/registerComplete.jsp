@@ -10,12 +10,12 @@
 </head>
 <body>
 	<div align="center">
-		<p id="header"></p><br>
+		<p id="header"></p><br><br>
         <h1>登録しました。</h1>
     </div><br>
 	<div align="center">
-		<form action="menu.jsp" method="post">
-		<input type="submit" value="メニュー画面に戻る">
+		<form action="employeeDataRegister.jsp" method="post">
+		<input type="submit" value="従業員登録画面に戻る">
 		</form>
 		<footer>
 		<font size="1">Copyright(C) 2018 Cteam. All Rights Reserved.</font>

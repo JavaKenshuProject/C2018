@@ -7,17 +7,23 @@
 <html>
 <head>
 <meta charset="UTF-8" />
+<link rel ="stylesheet" href ="login.css" type ="text/css">
 <title>資格取得画面</title>
 </head>
 <body>
+<div align="center">
+	<h2 id="header">従業員管理システム</h2>
 	<%
 		String sectionName = (String)session.getAttribute("sectionName");
 		if("総務部".equals(sectionName)) {
 	%>
-	<h1 align ="center"><font color="#000aff">資格取得画面</font></h1>
-		<form action ="EmployeeServlet" method ="POST">
-		<div align="left">
 
+	<div align ="center">
+	<h3 id="menu">資格取得</h3>
+	</div>
+		<form action ="EmployeeServlet" method ="POST">
+
+	<div align="left">
 		<table>
 			<tr>
 				<th> </th>
@@ -77,6 +83,7 @@
 		</table>
 
 		<br><br>
+		<div align="left">
 		資格			：<select name ="licenseName">
 						  <option value ="なし">選択してください</option>
 		<%
@@ -185,5 +192,6 @@
 	<%
 		}
 	%>
+	</div>
 </body>
 </html>
