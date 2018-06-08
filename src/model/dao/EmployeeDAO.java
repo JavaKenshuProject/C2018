@@ -42,8 +42,9 @@ public class EmployeeDAO {
 					PreparedStatement pstmt = con.prepareStatement(
 						"SELECT emp_code, l_name, f_name, l_kana_name, f_kana_name, sex, birth_day, section_name,"
 							+ " emp_date FROM m_employee e JOIN m_section s ON e.section_code = s.section_code"
-								+ " WHERE l_name like ? OR f_name like ? OR l_kana_name like ? OR f_kana_name like ?"
-									+ " OR section_name like ? ORDER BY emp_code ASC;")) {
+								+ " WHERE l_name LIKE ? OR f_name LIKE ? OR l_kana_name LIKE ? OR f_kana_name LIKE ?"
+									+ " OR CONCAT(l_name, f_name) LIKE ? OR CONCAT(l_kana_name, f_kana_name) LIKE ?"
+										+ " OR section_name LIKE ? ORDER BY emp_code ASC;")) {
 
 			ResultSet res = null;
 
@@ -61,13 +62,17 @@ public class EmployeeDAO {
 					pstmt.setString(2, "%"+str2+"%");
 					pstmt.setString(3, "%"+str2+"%");
 					pstmt.setString(4, "%"+str2+"%");
-					pstmt.setString(5, "%00%");
+					pstmt.setString(5, "%"+str2+"%");
+					pstmt.setString(6, "%"+str2+"%");
+					pstmt.setString(7, "%00%");
 				} else if (str1.equals("部署名")) {  // カラム名が部署名の場合
 					pstmt.setString(1, "%0%");
 					pstmt.setString(2, "%0%");
 					pstmt.setString(3, "%0%");
 					pstmt.setString(4, "%0%");
-					pstmt.setString(5, "%"+str2+"%");
+					pstmt.setString(5, "%0%");
+					pstmt.setString(6, "%0%");
+					pstmt.setString(7, "%"+str2+"%");
 				}
 
 				res = pstmt.executeQuery();
