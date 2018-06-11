@@ -225,7 +225,7 @@ public class EmployeeServlet extends HttpServlet {
 
 				// 入力不備
 				if(empCode == "" || lKanji == "" || fKanji == "" || lKana == "" || fKana == "" ||
-					(sex != 0 && sex !=1) || KATAKANA.matches(lKana) == false || KATAKANA.matches(fKana) == false) {
+					(sex != 0 && sex !=1) || lKana.matches(KATAKANA) == false || fKana.matches(KATAKANA) == false) {
 					throw new ClassNotFoundException();
 				}
 

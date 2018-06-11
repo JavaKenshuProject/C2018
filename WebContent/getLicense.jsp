@@ -22,22 +22,25 @@
 	</div>
 		<form action ="EmployeeServlet" method ="POST">
 
-	<div align="left">
-	<div id="employeetable">
-	<div id="scroll">
-		<table id="tablestyle">
+	<div class="employeetable">
+		<div style="position:relative; left:31px;">
+		<table class="tablestyle">
 			<tr>
-				<th> </th>
-				<th>従業員コード</th>
-				<th>氏名</th>
-				<th>氏名（フリガナ）</th>
-				<th>性別</th>
-				<th>生年月日</th>
-				<th>所属部署</th>
-				<th>入社日</th>
-				<th>保有資格</th>
+				<th style="width:1.35em;"> </th>
+				<th style="width:6em;">従業員コード</th>
+				<th style="width:5.3em;">氏名</th>
+				<th style="width:11.2em;">氏名（フリガナ）</th>
+				<th style="width:2em;">性別</th>
+				<th style="width:5.5em;">生年月日</th>
+				<th style="width:4em;">所属部署</th>
+				<th style="width:5.45em;">入社日</th>
+				<th style="width:10.55em;">保有資格</th>
 			</tr>
-
+		</table>
+		</div>
+		<div align="center">
+		<div class="scroll">
+		<table class="tablestyle">
 		<%
 			List<EmployeeBean> empList =
 					(List<EmployeeBean>) session.getAttribute("empList");
@@ -47,7 +50,7 @@
 		%>
 			<tr>
 				<td><input type="radio" name="empCode" value="<%=employee.getEmpCode() %>"></td>
-				<td><%=employee.getEmpCode() %>&nbsp;</td>
+				<td style="width:6em;"><%=employee.getEmpCode() %>&nbsp;</td>
 				<td><%=employee.getLKanji() %>&nbsp;<%=employee.getFKanji() %></td>
 				<td><%=employee.getLKana() %>&nbsp;<%=employee.getFKana() %></td>
 				<td><%
@@ -62,7 +65,7 @@
 						}
 					%></td>
 				<td><%=employee.getBirthday() %></td>
-				<td><%=employee.getSectionName() %></td>
+				<td style="width:4em;"><%=employee.getSectionName() %></td>
 				<td><%=employee.getEmpDate() %></td>
 				<td><%
 						if(employee.getLicenseNames() != null){
@@ -83,10 +86,10 @@
 				}
 			}
 		%>
-		</table></div></div>
+		</table>
+		</div>
+		<br>
 
-
-		<div align="center">
 		資格			：<select name ="licenseName">
 						  <option value ="なし">選択してください</option>
 		<%
@@ -171,6 +174,7 @@
 		</script>
 		<input type ="submit" name="action" value ="取得" onclick ="return check()">
 		</div>
+	</div>
 		</form>
 
 		<div align ="right">

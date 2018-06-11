@@ -61,7 +61,7 @@ input {
 		} else {
 	%>
 	<div align="center">
-		<h3>1分間ログインできません</h3>
+		<h2>1分間ログインできません</h2>
 		<script>
 			var countreset = function() {
 				window.location.href = 'loginCountReset.jsp';

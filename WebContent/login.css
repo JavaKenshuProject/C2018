@@ -12,8 +12,6 @@
 }
 
 
-
-
 body{
 	font-family: "Noto Sans JP";
 	margin-right:auto;
@@ -52,7 +50,7 @@ body{
 }
 
 
-#employeetable{
+.employeetable{
 	padding: 2em 5em;
     margin: 2em 0;
     font-weight: bold;
@@ -63,20 +61,21 @@ body{
 
 }
 
-#tablestyle{
+
+.tablestyle{
 	border-collapse: collapse;
 }
 
 
-#employeetable th, #employeetable td{
-	border: 1px #808080 solid;
+.scroll{
+	overflow-y: scroll;
+	width:900px;
+	height:140px;
 }
 
 
-#scroll{
-	overflow-y: scroll;
-	width:900px;
-	height:180px;
+.employeetable th, .employeetable td{
+	border: 1px #808080 solid;
 }
 
 
@@ -101,7 +100,6 @@ input[type="submit"] {
 
 
 footer{
-
 	background-color: #c0c0c0;   /* 背景色 */
 	position:fixed;       /* 絶対位置指定することを定義 */
 	bottom: 0px;              /* 絶対位置指定(左0px,下0px) */
