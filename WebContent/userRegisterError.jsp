@@ -12,7 +12,8 @@
 	<div align="center">
 		<h2 id="header">従業員管理システム</h2>
 		<br><br><br><br>
-        <h2>入力された情報に不備があります</h2>
+        <% String error = (String)session.getAttribute("error"); %>
+        <h2><%= error %></h2>
 		<br><br><br><br><br>
         <form action="userRegister.jsp" method="POST">
         	<input type="submit" value="戻る">

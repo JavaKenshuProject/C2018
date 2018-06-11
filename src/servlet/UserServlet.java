@@ -17,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.SectionDAO;
 import model.dao.UserDAO;
@@ -64,6 +65,7 @@ public class UserServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
 		String url = null;
 
 		String userId = request.getParameter("userId");
@@ -74,17 +76,24 @@ public class UserServlet extends HttpServlet {
 			SectionDAO secDao = new SectionDAO();
 			String sectionCode = secDao.getSectionCode(sectionName);  //sectionCodeを取得
 
-			if(userId=="" ||  password =="" || sectionCode==null) {
-				throw new NullPointerException();
+			if(userId == "") {
+				throw new NullPointerException("ユーザIDを入力してください");
+			} else if(password == "") {
+				throw new NullPointerException("パスワードを入力してください");
+			} else if(sectionCode == null) {
+				throw new NullPointerException("部署名を選択してください");
 			}
 			UserDAO uDao = new UserDAO();
 			uDao.addUser(userId, password, sectionCode);  // 利用者追加
 			url="userRegisterComplete.jsp";  // 成功画面
+
+		} catch (NullPointerException | ClassNotFoundException e) {
+			session.setAttribute("error", e.getMessage());
+			url = "userRegisterError.jsp";  // 失敗画面
 		} catch (SQLException e) {
 			url = "userRegisterErrorDup.jsp";  // 失敗画面
-		}catch (NullPointerException | ClassNotFoundException e) {
-			url = "userRegisterError.jsp";  // 失敗画面
 		}
+
 		RequestDispatcher dispatch = request.getRequestDispatcher(url);
 		dispatch.forward(request, response);  // 遷移
 

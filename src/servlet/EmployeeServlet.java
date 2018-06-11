@@ -137,13 +137,21 @@ public class EmployeeServlet extends HttpServlet {
 				String lKana = request.getParameter("lKana");
 				String fKana = request.getParameter("fKana");
 				byte sex = Byte.valueOf(request.getParameter("sex"));
-
 				String sectionName = request.getParameter("sectionName");
 
 				// 入力不備
-				if(lKanji == "" || fKanji == "" || lKana == "" || fKana == "" || (sex != 0 && sex !=1)
-								|| lKana.matches(KATAKANA) == false || fKana.matches(KATAKANA) == false) {
-					throw new ClassNotFoundException();
+				if(lKanji == "") {
+					throw new ClassNotFoundException("氏名（姓）を入力してください");
+				} else if(fKanji == "") {
+					throw new ClassNotFoundException("氏名（名）を入力してください");
+				} else if(lKana == "") {
+					throw new ClassNotFoundException("氏名（フリガナ）（姓）を入力してください");
+				} else if(fKana == "") {
+					throw new ClassNotFoundException("氏名（フリガナ）（名）を入力してください");
+				} else if(lKana.matches(KATAKANA) == false) {
+					throw new ClassNotFoundException("氏名（フリガナ）（姓）にカタカナを入力してください");
+				} else if(fKana.matches(KATAKANA) == false) {
+					throw new ClassNotFoundException("氏名（フリガナ）（名）にカタカナを入力してください");
 				}
 
 				SectionDAO sdao = new SectionDAO();
@@ -153,9 +161,11 @@ public class EmployeeServlet extends HttpServlet {
 
 				url = "/employeeDataChangeComplete.jsp";  // 完了画面
 
-			} catch (SQLException | ClassNotFoundException e) {
+			} catch (ClassNotFoundException e) {
+				session.setAttribute("error", e.getMessage());
+				url = "/employeeDataChangeError.jsp";  // 入力不備のエラー画面
+			} catch (SQLException e) {
 				e.printStackTrace();
-				url = "/employeeDataChangeError.jsp";  // エラー画面
 			}
 
 		} else if("削除".equals(action)) {
@@ -195,7 +205,6 @@ public class EmployeeServlet extends HttpServlet {
 				String fKanji = request.getParameter("fKanji");
 				String lKana = request.getParameter("lKana");
 				String fKana = request.getParameter("fKana");
-				byte sex = Byte.valueOf(request.getParameter("sex"));
 
 				String birthY = request.getParameter("birthY");  // 年
 				String birthM = request.getParameter("birthM");  // 月
@@ -224,12 +233,26 @@ public class EmployeeServlet extends HttpServlet {
 				Date empDate = Date.valueOf(empY +"-"+ empM +"-"+ empD);  // 入社日
 
 				// 入力不備
-				if(empCode == "" || lKanji == "" || fKanji == "" || lKana == "" || fKana == "" ||
-					(sex != 0 && sex !=1) || lKana.matches(KATAKANA) == false || fKana.matches(KATAKANA) == false) {
-					throw new ClassNotFoundException();
+				if(empCode == "") {
+					throw new ClassNotFoundException("従業員コードを入力してください");
+				} else if(lKanji == "") {
+					throw new ClassNotFoundException("氏名（姓）を入力してください");
+				} else if(fKanji == "") {
+					throw new ClassNotFoundException("氏名（名）を入力してください");
+				} else if(lKana == "") {
+					throw new ClassNotFoundException("氏名（フリガナ）（姓）を入力してください");
+				} else if(fKana == "") {
+					throw new ClassNotFoundException("氏名（フリガナ）（名）を入力してください");
+				} else if(lKana.matches(KATAKANA) == false) {
+					throw new ClassNotFoundException("氏名（フリガナ）（姓）にカタカナを入力してください");
+				} else if(fKana.matches(KATAKANA) == false) {
+					throw new ClassNotFoundException("氏名（フリガナ）（名）にカタカナを入力してください");
 				}
 
-
+				byte sex = Byte.valueOf(request.getParameter("sex"));
+				if(sex != 0 || sex != 1) {
+					throw new ClassNotFoundException("性別を選択してください");
+				}
 
 				// 従業員を登録
 				edao.addEmployee(empCode, lKanji, fKanji, lKana, fKana, sex, birthday, sectionCode, empDate);
@@ -244,11 +267,14 @@ public class EmployeeServlet extends HttpServlet {
 
 				url = "/registerComplete.jsp";  // 完了画面
 
-			} catch (SQLException e) {
-				e.printStackTrace();
-				url = "/registerErrorDup.jsp";  // 重複登録のエラー画面
-			} catch (NumberFormatException | ClassNotFoundException e) {
+			} catch (ClassNotFoundException e) {
+				session.setAttribute("error", e.getMessage());
 				url = "/registerError.jsp";  // 入力不備のエラー画面
+			} catch (NumberFormatException e) {
+				session.setAttribute("error", "性別を選択してください");
+				url = "/registerError.jsp";  // 入力不備のエラー画面
+			} catch (SQLException e) {
+				url = "/registerErrorDup.jsp";  // 重複登録のエラー画面
 			}
 
 		} else if("資格取得".equals(action)) {
@@ -287,8 +313,11 @@ public class EmployeeServlet extends HttpServlet {
 
 				String licenseName = request.getParameter("licenseName");
 
-				if(empCode == null || "なし".equals(licenseName)) {  // 入力不備
-					throw new ClassNotFoundException();
+				// 入力不備
+				if(empCode == null) {
+					throw new ClassNotFoundException("チェックを入れてください");
+				} else if("なし".equals(licenseName)) {
+					throw new ClassNotFoundException("資格名を選択してください");
 				}
 
 				LicenseDAO ldao = new LicenseDAO();
@@ -299,10 +328,11 @@ public class EmployeeServlet extends HttpServlet {
 
 				url = "/getLicenseComplete.jsp";  // 完了画面
 
+			} catch (ClassNotFoundException e) {
+				session.setAttribute("error", e.getMessage());
+				url = "/getLicenseError.jsp";  // 入力不備のエラー画面
 			} catch (SQLException e) {
 				url = "/getLicenseErrorDup.jsp";  // 重複登録のエラー画面
-			} catch (ClassNotFoundException e) {
-				url = "/getLicenseError.jsp";  // 入力不備のエラー画面
 			}
 
 		}

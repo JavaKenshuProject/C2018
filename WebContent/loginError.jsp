@@ -61,12 +61,12 @@ input {
 		} else {
 	%>
 	<div align="center">
-		<h2>1分間ログインできません</h2>
+		<h2>10秒ログインできません</h2>
 		<script>
 			var countreset = function() {
 				window.location.href = 'loginCountReset.jsp';
 			}
-			setTimeout(countreset, 60000);
+			setTimeout(countreset, 10000);
 		</script>
 
 		<form style="display: inline" name="form_count">
@@ -79,7 +79,7 @@ input {
 
 	<script type="text/javascript">
 	<!--
-		count = 60; //カウントの初期値
+		count = 10; //カウントの初期値
 		timerID = setInterval('countdown()', 1000); //1秒毎にcountup()を呼び出し
 
 		function countdown() {

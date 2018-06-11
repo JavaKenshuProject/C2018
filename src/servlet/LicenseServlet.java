@@ -19,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.LicenseDAO;
 
@@ -59,6 +60,7 @@ public class LicenseServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
 		String url = null; // 遷移先url
 
 		String licenseCode = request.getParameter("licenseCode"); // 入力値取得
@@ -66,12 +68,15 @@ public class LicenseServlet extends HttpServlet {
 
 		LicenseDAO lDao = new LicenseDAO();
 		try {
-			if (licenseCode == "" || licenseName == "") {
-				throw new NullPointerException(); // nullは登録しない
+			if (licenseCode == "") {
+				throw new NullPointerException("資格コードを入力してください"); // nullは登録しない
+			} else if(licenseName == "") {
+				throw new NullPointerException("資格名を入力してください"); // nullは登録しない
 			}
 			lDao.addLicense(licenseCode, licenseName);
 			url = "addLicenseComplete.jsp"; // 成功
 		} catch (ClassNotFoundException | NullPointerException e) {
+			session.setAttribute("error", e.getMessage());
 			url = "addLicenseError.jsp"; // 失敗
 		} catch (SQLException e) {
 			e.printStackTrace();
