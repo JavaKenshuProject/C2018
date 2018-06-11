@@ -22,15 +22,16 @@
 	</div>
 	<form action="EmployeeServlet" method="POST">
 	<div align="right">
+		<div id="search">
 		<select name="column">
 			<option value="氏名">氏名</option>
 			<option value="部署名">部署名</option>
 		</select>
-		<input type="text" name="value"><input type="submit" name="action" value="検索">
+		<input type="text" name="value"><input type="submit" name="action" value="検索"></div>
 	</div>
 	<div class="employeetable">
 		<div style="position:relative; left:31px;">
-		<table class="tablestyle">
+		<table class="tablestyle1">
 			<tr>
 				<th style="width:1.35em;"> </th>
 				<th style="width:6em;">従業員コード</th>
@@ -118,8 +119,7 @@
 		</div>
 	</div>
 		</form>
-
-		<div align ="right">
+		<div align="right">
 		<form action="menu.jsp" method="POST">
 		<input type="submit" value="メニュー画面に戻る">
 		</form>

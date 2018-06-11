@@ -24,7 +24,7 @@
 
 	<div class="employeetable">
 		<div style="position:relative; left:31px;">
-		<table class="tablestyle">
+		<table class="tablestyle1">
 			<tr>
 				<th style="width:1.35em;"> </th>
 				<th style="width:6em;">従業員コード</th>
