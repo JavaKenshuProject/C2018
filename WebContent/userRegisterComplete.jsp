@@ -12,7 +12,7 @@
 	<div align="center">
 		<h2 id="header">従業員管理システム</h2>
 		<br><br><br><br>
-        <h2>新規システム利用者を登録しました。</h2>
+        <h2>新規システム利用者を登録しました</h2>
 		<br><br><br><br><br>
        	<form action="menu.jsp" method="POST">
 			<input type="submit" value="メニューに戻る">

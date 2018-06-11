@@ -67,7 +67,7 @@
 				<td><%=employee.getBirthday() %></td>
 				<td style="width:4em;"><%=employee.getSectionName() %></td>
 				<td><%=employee.getEmpDate() %></td>
-				<td><%
+				<td style="width:10.7em;"><%
 						if(employee.getLicenseNames() != null){
 							for(String license : employee.getLicenseNames()){
 					%>

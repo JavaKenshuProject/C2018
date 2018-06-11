@@ -77,6 +77,8 @@ public class EmployeeServlet extends HttpServlet {
 
 		if("従業員一覧表示".equals(action) || "従業員一覧画面に戻る".equals(action) || "戻る".equals(action)) {
 
+			session.removeAttribute("column");
+			session.removeAttribute("value");
 			try {
 				// 全従業員を取得してセッションに保存
 				List<EmployeeBean> empList = edao.getEmployee(null, null);
@@ -92,7 +94,9 @@ public class EmployeeServlet extends HttpServlet {
 
 			session.removeAttribute("empList");  // 全従業員のセッションを破棄
 			String column = request.getParameter("column");  // カラム名
+			session.setAttribute("column", column);
 			String value = request.getParameter("value");  // 値
+			session.setAttribute("value", value);
 			try {
 				// 検索した従業員を取得してセッションに保存
 				List<EmployeeBean> empList = edao.getEmployee(column, value);
@@ -250,7 +254,7 @@ public class EmployeeServlet extends HttpServlet {
 				}
 
 				byte sex = Byte.valueOf(request.getParameter("sex"));
-				if(sex != 0 || sex != 1) {
+				if(sex != 0 && sex != 1) {
 					throw new ClassNotFoundException("性別を選択してください");
 				}
 
@@ -315,7 +319,7 @@ public class EmployeeServlet extends HttpServlet {
 
 				// 入力不備
 				if(empCode == null) {
-					throw new ClassNotFoundException("チェックを入れてください");
+					throw new ClassNotFoundException("従業員を選択してください");
 				} else if("なし".equals(licenseName)) {
 					throw new ClassNotFoundException("資格名を選択してください");
 				}

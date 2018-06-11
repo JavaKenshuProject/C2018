@@ -24,13 +24,30 @@
 	<div align="right">
 		<div id="search">
 		<select name="column">
+			<%
+				String column = (String)session.getAttribute("column");
+				String value = (String)session.getAttribute("value");
+				if(value == null) {
+					value = "";
+				}
+
+				if("部署名".equals(column)) {
+			%>
 			<option value="氏名">氏名</option>
+			<option value="部署名" selected="selected">部署名</option>
+			<%
+				} else {
+			%>
+			<option value="氏名" selected="selected">氏名</option>
 			<option value="部署名">部署名</option>
+			<%
+				}
+			%>
 		</select>
-		<input type="text" name="value"><input type="submit" name="action" value="検索"></div>
+		<input type="text" name="value" value=<%=value%>><input type="submit" name="action" value="検索"></div>
 	</div>
 	<div class="employeetable">
-		<div style="position:relative; left:31px;">
+		<div style="position:relative; left:29px;">
 		<table class="tablestyle1">
 			<tr>
 				<th style="width:1.35em;"> </th>
@@ -38,9 +55,9 @@
 				<th style="width:5.3em;">氏名</th>
 				<th style="width:11.2em;">氏名（フリガナ）</th>
 				<th style="width:2em;">性別</th>
-				<th style="width:5.5em;">生年月日</th>
+				<th style="width:5.55em;">生年月日</th>
 				<th style="width:4em;">所属部署</th>
-				<th style="width:5.45em;">入社日</th>
+				<th style="width:5.6em;">入社日</th>
 				<th style="width:10.55em;">保有資格</th>
 			</tr>
 		</table>
@@ -58,8 +75,8 @@
 			<tr>
 				<td><input type="radio" name="empCode" value="<%=employee.getEmpCode() %>"></td>
 				<td style="width:6em;"><%=employee.getEmpCode() %>&nbsp;</td>
-				<td><%=employee.getLKanji() %>&nbsp;<%=employee.getFKanji() %></td>
-				<td><%=employee.getLKana() %>&nbsp;<%=employee.getFKana() %></td>
+				<td style="width:5.3em;"><%=employee.getLKanji() %>&nbsp;<%=employee.getFKanji() %></td>
+				<td style="width:11.3em;"><%=employee.getLKana() %>&nbsp;<%=employee.getFKana() %></td>
 				<td><%
 						if(employee.getSex() == 0){
 					%>
@@ -74,7 +91,7 @@
 				<td><%=employee.getBirthday() %></td>
 				<td style="width:4em;"><%=employee.getSectionName() %></td>
 				<td><%=employee.getEmpDate() %></td>
-				<td><%
+				<td style="width:10.7em;"><%
 						if(employee.getLicenseNames() != null){
 							for(String license : employee.getLicenseNames()) {
 					%>

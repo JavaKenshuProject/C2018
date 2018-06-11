@@ -12,7 +12,7 @@
 	<div align="center">
 		<h2 id="header">従業員管理システム</h2>
 		<br><br><br><br>
-        <h2>チェックを入れてください</h2>
+        <h2>従業員を選択してください</h2>
    		<br><br><br><br><br>
         <form action="employeeList.jsp" method="POST">
         	<input type="submit" value="戻る">
